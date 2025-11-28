@@ -37,49 +37,49 @@ const Stats = () => {
       <ContentWrapper ref={bookRef}>
         <StatSectionWrapper>
           <WorkshopsBlock
-            inView={bookInView}
+            $inView={bookInView}
             src={workshops}
             alt="workshops"
             aria-label="15+ workshops"
             loading="lazy"
           />
           <MentorsBlock
-            inView={bookInView}
+            $inView={bookInView}
             src={mentors}
             alt="mentors"
             aria-label="150 mentors"
             loading="lazy"
           />
           <SchoolsBlock
-            inView={bookInView}
+            $inView={bookInView}
             src={schools}
             alt="195 schools"
             aria-label="195 schools"
             loading="lazy"
           />
           <TravelBlock
-            inView={bookInView}
+            $inView={bookInView}
             src={travelled}
             alt="115000 km travelled"
             aria-label="115000 km travelled"
             loading="lazy"
           />
           <CountryBlock
-            inView={bookInView}
+            $inView={bookInView}
             src={countries}
             alt="countries"
             aria-label="13 countries"
             loading="lazy"
           />
           <HackerBlock
-            inView={bookInView}
+            $inView={bookInView}
             src={hackers}
             alt="1000+ hackers"
             aria-label="1000+ hackers"
             loading="lazy"
           />
           <ProjectBlock
-            inView={bookInView}
+            $inView={bookInView}
             src={projects}
             alt="250 projects submitted"
             aria-label="250 projects submitted"
@@ -533,9 +533,8 @@ const BlockDefaultStyles = styled.img`
   z-index: -1;
 `;
 
-const MentorsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
-  ${({ inView }) =>
-    inView &&
+const MentorsBlock = styled(BlockDefaultStyles)<{ $inView?: boolean }>`
+  ${({ $inView }) => $inView &&
     css`
       animation: ${css`
         ${mentorAnimation} 1.9s ease forwards, ${hoverAnimation} 2.3s infinite
@@ -544,8 +543,7 @@ const MentorsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.large} {
     width: 164px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${mentorAnimationLarge} 1.9s ease forwards, ${hoverAnimation} 2.3s infinite
@@ -555,8 +553,7 @@ const MentorsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.medium} {
     width: 165px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${mentorAnimationMedium} 1.9s ease forwards, ${hoverAnimation} 2.3s infinite
@@ -566,8 +563,7 @@ const MentorsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
     width: 25%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${mentorAnimationMobile} 1.9s ease forwards, ${hoverAnimation} 2.3s infinite
@@ -577,8 +573,7 @@ const MentorsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.largeMobile} {
     width: 25%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${mentorAnimationMobileLarge} 1.9s ease forwards, ${hoverAnimation} 2.3s infinite
@@ -587,9 +582,8 @@ const MentorsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 `;
 
-const WorkshopsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
-  ${({ inView }) =>
-    inView &&
+const WorkshopsBlock = styled(BlockDefaultStyles)<{ $inView?: boolean }>`
+  ${({ $inView }) => $inView &&
     css`
       animation: ${css`
         ${workshopsAnimation} 1.8s ease forwards, ${hoverAnimation} 3s infinite
@@ -598,8 +592,7 @@ const WorkshopsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.large} {
     width: 169px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${workshopsAnimationLarge} 1.8s ease forwards, ${hoverAnimation} 3s infinite
@@ -609,8 +602,7 @@ const WorkshopsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.medium} {
     width: 171px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${workshopsAnimationMedium} 1.8s ease forwards, ${hoverAnimation} 3s infinite
@@ -620,8 +612,7 @@ const WorkshopsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
     width: 25%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${workshopsAnimationMobile} 1.8s ease forwards, ${hoverAnimation} 3s infinite
@@ -631,8 +622,7 @@ const WorkshopsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.largeMobile} {
     width: 25%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${workshopsAnimationMobileLarge} 1.8s ease forwards, ${hoverAnimation} 3s infinite
@@ -641,9 +631,8 @@ const WorkshopsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 `;
 
-const SchoolsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
-  ${({ inView }) =>
-    inView &&
+const SchoolsBlock = styled(BlockDefaultStyles)<{ $inView?: boolean }>`
+  ${({ $inView }) => $inView &&
     css`
       animation: ${css`
         ${schoolAnimation} 2s ease forwards, ${hoverAnimation} 2.2s infinite
@@ -652,8 +641,7 @@ const SchoolsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.large} {
     width: 302.4px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${schoolAnimationLarge} 2s ease forwards, ${hoverAnimation} 2.2s infinite
@@ -663,8 +651,7 @@ const SchoolsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.medium} {
     width: 306px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${schoolAnimationMedium} 2s ease forwards, ${hoverAnimation} 2.2s infinite
@@ -674,8 +661,7 @@ const SchoolsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
     width: 45%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${schoolAnimationMobile} 2s ease forwards, ${hoverAnimation} 2.2s infinite
@@ -685,8 +671,7 @@ const SchoolsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.largeMobile} {
     width: 45%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${schoolAnimationMobileLarge} 2s ease forwards, ${hoverAnimation} 2.2s infinite
@@ -695,9 +680,8 @@ const SchoolsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 `;
 
-const TravelBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
-  ${({ inView }) =>
-    inView &&
+const TravelBlock = styled(BlockDefaultStyles)<{ $inView?: boolean }>`
+  ${({ $inView }) => $inView &&
     css`
       animation: ${css`
         ${travelAnimation} 1.8s ease forwards, ${hoverAnimation} 2.7s infinite
@@ -706,8 +690,7 @@ const TravelBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.large} {
     width: 239px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${travelAnimationLarge} 1.8s ease forwards, ${hoverAnimation} 2.7s infinite
@@ -717,8 +700,7 @@ const TravelBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.medium} {
     width: 241px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${travelAnimationMedium} 1.8s ease forwards, ${hoverAnimation} 2.7s infinite
@@ -728,8 +710,7 @@ const TravelBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
     width: 35%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${travelAnimationMobile} 1.8s ease forwards, ${hoverAnimation} 2.7s infinite
@@ -739,8 +720,7 @@ const TravelBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.largeMobile} {
     width: 35%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${travelAnimationMobileLarge} 1.8s ease forwards, ${hoverAnimation} 2.7s infinite
@@ -749,9 +729,8 @@ const TravelBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 `;
 
-const CountryBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
-  ${({ inView }) =>
-    inView &&
+const CountryBlock = styled(BlockDefaultStyles)<{ $inView?: boolean }>`
+  ${({ $inView }) => $inView &&
     css`
       animation: ${css`
         ${countryAnimation} 1.9s ease forwards, ${hoverAnimation} 2.6s infinite
@@ -760,8 +739,7 @@ const CountryBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.large} {
     width: 225px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${countryAnimationLarge} 1.9s ease forwards, ${hoverAnimation} 2.6s infinite
@@ -771,8 +749,7 @@ const CountryBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.medium} {
     width: 227px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${countryAnimationMedium} 1.9s ease forwards, ${hoverAnimation} 2.6s infinite
@@ -782,8 +759,7 @@ const CountryBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
     width: 35%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${countryAnimationMobile} 1.9s ease forwards, ${hoverAnimation} 2.6s infinite
@@ -793,8 +769,7 @@ const CountryBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.largeMobile} {
     width: 35%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${countryAnimationMobileLarge} 1.9s ease forwards, ${hoverAnimation} 2.6s infinite
@@ -803,9 +778,8 @@ const CountryBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 `;
 
-const HackerBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
-  ${({ inView }) =>
-    inView &&
+const HackerBlock = styled(BlockDefaultStyles)<{ $inView?: boolean }>`
+  ${({ $inView }) => $inView &&
     css`
       animation: ${css`
         ${hackerAnimation} 1.6s ease forwards, ${hoverAnimation} 2.9s infinite
@@ -814,8 +788,7 @@ const HackerBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.large} {
     width: 273px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${hackerAnimationLarge} 1.6s ease forwards, ${hoverAnimation} 2.9s infinite
@@ -825,8 +798,7 @@ const HackerBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.medium} {
     width: 276px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${hackerAnimationMedium} 1.6s ease forwards, ${hoverAnimation} 2.9s infinite
@@ -836,8 +808,7 @@ const HackerBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
     width: 38%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${hackerAnimationMobile} 1.6s ease forwards, ${hoverAnimation} 2.9s infinite
@@ -847,8 +818,7 @@ const HackerBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.largeMobile} {
     width: 38%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${hackerAnimationMobileLarge} 1.6s ease forwards, ${hoverAnimation} 2.9s infinite
@@ -857,9 +827,8 @@ const HackerBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 `;
 
-const ProjectBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
-  ${({ inView }) =>
-    inView &&
+const ProjectBlock = styled(BlockDefaultStyles)<{ $inView?: boolean }>`
+  ${({ $inView }) => $inView &&
     css`
       animation: ${css`
         ${projectAnimation} 1.5s ease forwards, ${hoverAnimation} 2.5s infinite
@@ -868,8 +837,7 @@ const ProjectBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.large} {
     width: 271px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${projectAnimationLarge} 1.5s ease forwards, ${hoverAnimation} 2.5s infinite
@@ -879,8 +847,7 @@ const ProjectBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.medium} {
     width: 275px;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${projectAnimationMedium} 1.5s ease forwards, ${hoverAnimation} 2.5s infinite
@@ -890,8 +857,7 @@ const ProjectBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
     width: 40%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${projectAnimationMobile} 1.5s ease forwards, ${hoverAnimation} 2.5s infinite
@@ -901,8 +867,7 @@ const ProjectBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 
   ${mediaQueries.largeMobile} {
     width: 40%;
-    ${({ inView }) =>
-      inView &&
+    ${({ $inView }) => $inView &&
       css`
         animation: ${css`
           ${projectAnimationMobileLarge} 1.5s ease forwards, ${hoverAnimation} 2.5s infinite

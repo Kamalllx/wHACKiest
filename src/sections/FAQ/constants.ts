@@ -1,74 +1,67 @@
-import { QuestionAnswer } from "@/components/base/Accordion";
+﻿import { QuestionAnswer } from "@/components/base/Accordion";
 
 export const LEFT_QUESTION_SET: QuestionAnswer[] = [
   {
-    question: "What is wHACKiest?",
+    question: "What is wHACKiest 2025?",
     answer:
-      "wHACKiest is Canada’s biggest hackathon, where 1,000+ students of different skill levels come together to experiment and create unique software or hardware projects from scratch. We empower and enable teams to make something great in only 36 hours by providing an abundance of resources like workshops, mentors, sponsors, and hardware.",
+      "wHACKiest 2025 is a two-phase hackathon organized by CodeRIT and the Department of Computer Science and Engineering. It starts with an Ideathon where teams pitch their ideas, followed by a 24-hour on-campus hackathon for the top 60 selected teams. It's your chance to innovate, collaborate, and compete for amazing prizes!",
   },
   {
     question: "Who can participate?",
     answer:
-      "Students of any education level from anywhere in the world are eligible to apply for wHACKiest! All attendees must be 13 years or older to participate.",
+      "wHACKiest is open to all college students! Whether you're a first-year fresher or a final-year student, you're welcome to participate. We encourage students from all branches to join and showcase their innovative ideas.",
   },
   {
-    question: "What if I’ve never been to a hackathon before?",
+    question: "What if I've never been to a hackathon before?",
     answer:
-      "wHACKiest welcomes students of all skill levels. Many students attend wHACKiest as their first hackathon, and they always have a blast! We’ll provide tech resources (including hardware), mentors, and workshops to help you with your project; hackathons can be a great place to learn new skills in a short amount of time. Just be eager to learn, and excited to meet lots of awesome people.",
+      "No worries! wHACKiest welcomes students of all skill levels. We'll have mentors, workshops, and resources to help you along the way. Many first-time hackers have gone on to win prizes at hackathons. Just bring your enthusiasm and willingness to learn!",
   },
-
   {
     question: "How many people can be on a team?",
     answer:
-      "Hackers may form teams of up to 4 people. There are no restrictions for who they can be, so you can team up with hackers from any school, country, or experience level. Teams can be formed before or during the event at hackers’ own discretion.",
+      "Teams can have 2-4 members. You can form teams with students from any branch or year. We encourage diverse teams with different skill sets - developers, designers, and idea people all contribute to great projects!",
   },
   {
-    question: "When do hacker applications open?",
+    question: "What is the registration fee?",
     answer:
-      "Thanks for applying to wHACKiest! Keep an eye on your inbox as we’ll be sending decisions in the coming weeks!",
+      "There is absolutely NO registration fee for wHACKiest 2025! The event is completely free for all participants. We want to ensure that financial constraints don't stop anyone from participating.",
   },
   {
-    question:
-      "I’m not currently enrolled as a student, can I still attend wHACKiest?",
+    question: "What is the prize pool?",
     answer:
-      "wHACKiest is geared towards students who are interested in tech, but we also want to open the doors for anyone who wants to learn. If your situation falls within this category, please reach out to us at hello@coderit.org and we can chat more regarding certain exemptions!",
+      "The total prize pool is Rs. 50,000! Breakdown: 1st Place - Rs. 18,000, 2nd Place - Rs. 12,000, 3rd Place - Rs. 10,000, Best Freshers Team - Rs. 5,000, Best Female Team - Rs. 5,000. Plus, there may be special sponsor prizes!",
   },
 ];
 
 export const RIGHT_QUESTION_SET: QuestionAnswer[] = [
   {
-    question: "Will wHACKiest 2024 happen in person or virtually?",
+    question: "What are the two phases of wHACKiest?",
     answer:
-      "wHACKiest 2024 will be an in-person hackathon, hosted at the our campus. Stay tuned to hear the latest updates by following our social media channels (@coderit), and signing up for our mailing list!",
+      "Phase 1 (Ideathon): Teams register and pitch their innovative ideas online. This runs from December 1-10. Phase 2 (Hackathon): Top 60 teams selected from the Ideathon compete in a 24-hour on-campus hackathon on December 12-13.",
   },
   {
-    question: "What if I want to join virtually?",
+    question: "Where and when is the event?",
     answer:
-      "wHACKiest aims to provide participants with the best experience possible, and we strongly feel that an in-person event is the best way to empower our hackers to dream big and build. We will not be offering a virtual attendance option this year.",
-  },
-
-  {
-    question: "What kind of workshops, talks, and activities will there be?",
-    answer:
-      "Previously, we’ve held workshops and talks for a range of skill levels from beginner to advanced like Intro to React and Exploring and Wrangling Data with Pandas. Other workshops also explore various programming tools such as APIs, databases, and platforms.\nActivities like VR demos, meetups, and even karaoke happen throughout the weekend. Whether it’s for relaxation or health, novelty or competition, our team has something exciting prepared for you to enjoy!",
-  },
-
-  {
-    question: "How much does it cost to attend wHACKiest?",
-    answer:
-      "Admission to wHACKiest is completely free! We will also provide food and accommodation for the entire event, as well as all the resources and mentorship our hackers need to build something incredible.",
+      "The inauguration and Problem Statement release will be on December 4th, 2025 at 2:30 PM at ESB Seminar Hall 1. The 24-hour hackathon will be held on-campus on December 12-13, 2025. More venue details will be shared with selected teams.",
   },
   {
-    question:
-      "What if I need to travel internationally to attend wHACKiest?",
+    question: "When will problem statements be released?",
     answer:
-      "Please note that visitor visa wait times may be as long as several months, depending on the country of departure. We recommend you apply for your visa, if required, immediately after receiving your acceptance to wHACKiest. More information can be found on our Travel Guidelines page.\nCOVID-19: If you’re traveling to wHACKiest from outside of Canada, you must follow the Government of Canada’s travel guidelines in order to attend. As of February 2024, the guidelines do not require any sort of pre-flight testing or proof of vaccination. However, please ensure that you are fully compliant with your home country’s COVID-19 guidelines in order to ensure a smooth trip. wHACKiest will not reimburse any additional fees that event attendees incur due to COVID-19 related complications.",
+      "Problem statements will be revealed during the grand inauguration ceremony on December 4th, 2025 at 2:00 PM. Join us at ESB Seminar Hall 1 at 2:30 PM for the inauguration!",
   },
   {
-    question: "What are your COVID-19 regulations?",
+    question: "What kind of projects can I build?",
     answer:
-      "At this time, wHACKiest does not have a COVID-19 policy. Taking your own health/safety precautions is recommended, but attendance at wHACKiest is at your own risk.\nFollowing the Government of Canada’s decision to remove all COVID-19 travel restrictions, wHACKiest will not be enforcing any COVID-related restrictions or regulations at our event. In the event that the COVID-19 situation changes in our region, we will follow the Canadian and Ontario government guidelines and restrictions as necessary.\nA small reserve of masks, hand sanitizer, and rapid tests will be available at the event.\nWe kindly ask that if you are feeling unwell, please do not attend the event for the safety of other hackers and guests.",
+      "You can build projects related to the problem statements from our sponsors, or choose the Open Innovation track to build anything you want! Projects can be web apps, mobile apps, AI/ML solutions, IoT devices, or any tech-based solution.",
+  },
+  {
+    question: "Will food be provided during the hackathon?",
+    answer:
+      "Yes! We'll provide meals and refreshments throughout the 24-hour hackathon. Details about food arrangements will be shared with selected teams before the event.",
+  },
+  {
+    question: "How do I register?",
+    answer:
+      "Registration opens on December 1st, 2025. Keep an eye on our website and social media for the registration link. Make sure to form your team and prepare your innovative ideas before registration opens!",
   },
 ];
-
-

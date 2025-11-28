@@ -154,7 +154,7 @@ const TalkingPoints: React.FC = () => {
           </AnimatedSectionWrapper>
           <TextSectionWrapper>
             <TalkingPointsTextWrapper>
-              <TalkingPointsParagraphWrapper inView={createDivInView}>
+              <TalkingPointsParagraphWrapper $inView={createDivInView}>
                 <StyledHeading2>Join a global community</StyledHeading2>
                 <StyledLargeBodyMedium ref={joinDivRef}>
                   Connect with curious and creative students from schools across
@@ -166,7 +166,7 @@ const TalkingPoints: React.FC = () => {
               </TalkingPointsParagraphWrapper>
             </TalkingPointsTextWrapper>
             <TalkingPointsTextWrapper>
-              <TalkingPointsParagraphWrapper inView={makeDivInView}>
+              <TalkingPointsParagraphWrapper $inView={makeDivInView}>
                 <StyledHeading2>Create something amazing!</StyledHeading2>
                 <StyledLargeBodyMedium ref={createDivRef}>
                   Get inspired and build! Don’t have the resources you need to
@@ -177,7 +177,7 @@ const TalkingPoints: React.FC = () => {
               </TalkingPointsParagraphWrapper>
             </TalkingPointsTextWrapper>
             <TalkingPointsTextWrapper>
-              <TalkingPointsParagraphWrapper inView={false}>
+              <TalkingPointsParagraphWrapper $inView={false}>
                 <StyledHeading2>Make lasting memories</StyledHeading2>
                 <StyledLargeBodyMedium ref={makeDivRef}>
                   Take a break from hacking and enjoy fun activities planned

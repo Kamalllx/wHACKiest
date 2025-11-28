@@ -1,0 +1,75 @@
+﻿import { QuestionAnswer } from "@/components/base/Accordion";
+
+export const LEFT_QUESTION_SET: QuestionAnswer[] = [
+  {
+    question: "What is wHACKiest?",
+    answer:
+      "wHACKiest is Canadaâ€™s biggest hackathon, where 1,000+ students of different skill levels come together to experiment and create unique software or hardware projects from scratch. We empower and enable teams to make something great in only 36 hours by providing an abundance of resources like workshops, mentors, sponsors, and hardware.",
+  },
+  {
+    question: "Who can participate?",
+    answer:
+      "Students of any education level from anywhere in the world are eligible to apply for wHACKiest! All attendees must be 13 years or older to participate.",
+  },
+  {
+    question: "What if Iâ€™ve never been to a hackathon before?",
+    answer:
+      "wHACKiest welcomes students of all skill levels. Many students attend wHACKiest as their first hackathon, and they always have a blast! Weâ€™ll provide tech resources (including hardware), mentors, and workshops to help you with your project; hackathons can be a great place to learn new skills in a short amount of time. Just be eager to learn, and excited to meet lots of awesome people.",
+  },
+
+  {
+    question: "How many people can be on a team?",
+    answer:
+      "Hackers may form teams of up to 4 people. There are no restrictions for who they can be, so you can team up with hackers from any school, country, or experience level. Teams can be formed before or during the event at hackersâ€™ own discretion.",
+  },
+  {
+    question: "When do hacker applications open?",
+    answer:
+      "Thanks for applying to wHACKiest! Keep an eye on your inbox as weâ€™ll be sending decisions in the coming weeks!",
+  },
+  {
+    question:
+      "Iâ€™m not currently enrolled as a student, can I still attend wHACKiest?",
+    answer:
+      "wHACKiest is geared towards students who are interested in tech, but we also want to open the doors for anyone who wants to learn. If your situation falls within this category, please reach out to us at hello@coderit.org and we can chat more regarding certain exemptions!",
+  },
+];
+
+export const RIGHT_QUESTION_SET: QuestionAnswer[] = [
+  {
+    question: "Will wHACKiest 2024 happen in person or virtually?",
+    answer:
+      "wHACKiest 2024 will be an in-person hackathon, hosted at the our campus. Stay tuned to hear the latest updates by following our social media channels (@coderit), and signing up for our mailing list!",
+  },
+  {
+    question: "What if I want to join virtually?",
+    answer:
+      "wHACKiest aims to provide participants with the best experience possible, and we strongly feel that an in-person event is the best way to empower our hackers to dream big and build. We will not be offering a virtual attendance option this year.",
+  },
+
+  {
+    question: "What kind of workshops, talks, and activities will there be?",
+    answer:
+      "Previously, weâ€™ve held workshops and talks for a range of skill levels from beginner to advanced like Intro to React and Exploring and Wrangling Data with Pandas. Other workshops also explore various programming tools such as APIs, databases, and platforms.\nActivities like VR demos, meetups, and even karaoke happen throughout the weekend. Whether itâ€™s for relaxation or health, novelty or competition, our team has something exciting prepared for you to enjoy!",
+  },
+
+  {
+    question: "How much does it cost to attend wHACKiest?",
+    answer:
+      "Admission to wHACKiest is completely free! We will also provide food and accommodation for the entire event, as well as all the resources and mentorship our hackers need to build something incredible.",
+  },
+  {
+    question:
+      "What if I need to travel internationally to attend wHACKiest?",
+    answer:
+      "Please note that visitor visa wait times may be as long as several months, depending on the country of departure. We recommend you apply for your visa, if required, immediately after receiving your acceptance to wHACKiest. More information can be found on our Travel Guidelines page.\nCOVID-19: If youâ€™re traveling to wHACKiest from outside of Canada, you must follow the Government of Canadaâ€™s travel guidelines in order to attend. As of February 2024, the guidelines do not require any sort of pre-flight testing or proof of vaccination. However, please ensure that you are fully compliant with your home countryâ€™s COVID-19 guidelines in order to ensure a smooth trip. wHACKiest will not reimburse any additional fees that event attendees incur due to COVID-19 related complications.",
+  },
+  {
+    question: "What are your COVID-19 regulations?",
+    answer:
+      "At this time, wHACKiest does not have a COVID-19 policy. Taking your own health/safety precautions is recommended, but attendance at wHACKiest is at your own risk.\nFollowing the Government of Canadaâ€™s decision to remove all COVID-19 travel restrictions, wHACKiest will not be enforcing any COVID-related restrictions or regulations at our event. In the event that the COVID-19 situation changes in our region, we will follow the Canadian and Ontario government guidelines and restrictions as necessary.\nA small reserve of masks, hand sanitizer, and rapid tests will be available at the event.\nWe kindly ask that if you are feeling unwell, please do not attend the event for the safety of other hackers and guests.",
+  },
+];
+
+
+

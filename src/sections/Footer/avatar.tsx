@@ -9,7 +9,6 @@ interface AvatarProps extends ComponentPropsWithoutRef<"img"> {
   handleOnHover: () => void;
   handleOnLeave: () => void;
   isMediumOrSmaller: boolean | undefined;
-  handleMobileClick: () => void;
 }
 
 interface AvatarContainerProps {

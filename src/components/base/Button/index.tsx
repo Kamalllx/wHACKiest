@@ -17,7 +17,7 @@ type Props = {
 
 const commonButtonStyles = css<{
   size: "small" | "medium";
-  arrow?: boolean;
+  $arrow?: boolean;
   disabled?: boolean;
 }>`
   justify-content: center;
@@ -33,15 +33,15 @@ const commonButtonStyles = css<{
 
 const PrimaryButtonContainer = styled.button<{
   size: "small" | "medium";
-  arrow?: boolean;
+  $arrow?: boolean;
   disabled?: boolean;
 }>`
   ${commonButtonStyles}
   height: ${({ size }) => (size === "small" ? `42px` : `48px`)};
   max-width: min-content;
   display: flex;
-  padding: ${({ arrow, size, disabled }) =>
-    calculatePadding(size, arrow, disabled)};
+  padding: ${({ $arrow, size, disabled }) =>
+    calculatePadding(size, $arrow, disabled)};
   text-align: center;
   border-radius: 100px;
   border: ${({ size }) => (size === "small" ? `1px` : `1.5px`)} solid #c7d3ff;
@@ -51,8 +51,8 @@ const PrimaryButtonContainer = styled.button<{
     border: ${({ size }) => (size === "small" ? `1px` : `1.5px`)} solid #fdf7ea;
   }
   &:disabled {
-    padding: ${({ arrow, size, disabled }) =>
-      calculatePadding(size, arrow, disabled)};
+    padding: ${({ $arrow, size, disabled }) =>
+      calculatePadding(size, $arrow, disabled)};
     border: 0px;
     background: rgba(255, 255, 255, 0.12);
     opacity: 0.38;
@@ -61,7 +61,7 @@ const PrimaryButtonContainer = styled.button<{
 
 const TertiaryButtonContainer = styled.button<{
   size: "small" | "medium";
-  arrow?: boolean;
+  $arrow?: boolean;
   disabled?: boolean;
 }>`
   ${commonButtonStyles}
@@ -121,7 +121,7 @@ const Button: React.FC<Props> = ({
   return (
     <ButtonContainer
       size={size}
-      arrow={arrow}
+      $arrow={arrow}
       disabled={disabled}
       style={{ color }}
       onClick={!disabled ? onClick : undefined}

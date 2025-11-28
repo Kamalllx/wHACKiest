@@ -43,9 +43,6 @@ const OrganizerCarousel: React.FC<OrganizerCarouselRowProps> = ({
                   handleOnHover={() => handleOnHover(organizer)}
                   handleOnLeave={handleOnLeave}
                   isMediumOrSmaller={isMediumOrSmaller}
-                  handleMobileClick={() => {
-                    handleOnHover(organizer);
-                  }}
                 />
               ))}
             </Ion>

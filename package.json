@@ -14,11 +14,15 @@
     "@headlessui/react": "^2.2.9",
     "@juggle/resize-observer": "^3.4.0",
     "axios": "^1.13.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "fathom-client": "^3.7.2",
     "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
     "lodash.debounce": "^4.0.8",
+    "motion": "^12.23.24",
     "next": "16.0.5",
+    "postcss": "^8.5.6",
     "react": "19.2.0",
     "react-cool-dimensions": "^3.0.1",
     "react-dom": "19.2.0",
@@ -27,11 +31,12 @@
     "react-markdown": "^10.1.0",
     "react-scrollspy": "^3.4.3",
     "styled-components": "^6.1.19",
+    "tailwind-merge": "^3.4.0",
     "ua-parser-js": "^2.0.6"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.17",
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -39,7 +44,7 @@
     "@types/styled-components": "^5.1.36",
     "eslint": "^9",
     "eslint-config-next": "16.0.5",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.1.17",
     "typescript": "^5"
   }
 }
