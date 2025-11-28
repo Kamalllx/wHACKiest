@@ -40,37 +40,37 @@ const Engineering: React.FC = () => {
       <UWEngineeringContainer ref={ref}>
         <GooseContainer className="inContainer">
           <Goose
-            visible
+            $visible
             src={PortalIn5}
             alt="Graphic of a portal with a goose walking in"
             loading="lazy"
           />
           <Goose
-            visible={gooseState <= 3}
+            $visible={gooseState <= 3}
             src={PortalIn1}
             alt="Graphic of a portal with a goose walking in"
             loading="lazy"
           />
           <Goose
-            visible={gooseState === 4}
+            $visible={gooseState === 4}
             src={PortalIn2}
             alt="Graphic of a portal with a goose walking in"
             loading="lazy"
           />
           <Goose
-            visible={gooseState === 5}
+            $visible={gooseState === 5}
             src={PortalIn3}
             alt="Graphic of a portal with a goose walking in"
             loading="lazy"
           />
           <Goose
-            visible={gooseState === 6}
+            $visible={gooseState === 6}
             src={PortalIn4}
             alt="Graphic of a portal with a goose walking in"
             loading="lazy"
           />
           <Goose
-            visible={gooseState >= 7}
+            $visible={gooseState >= 7}
             src={PortalIn5}
             alt="Graphic of a portal with a goose walking in"
             loading="lazy"
@@ -97,37 +97,37 @@ const Engineering: React.FC = () => {
         </UWEngineeringContent>
         <GooseContainer className="outContainer">
           <Goose
-            visible
+            $visible
             src={PortalOut1}
             alt="Graphic of a portal with a mechanical goose walking out"
             loading="lazy"
           />
           <Goose
-            visible={gooseState <= 6}
+            $visible={gooseState <= 6}
             src={PortalOut1}
             alt="Graphic of a portal with a mechanical goose walking out"
             loading="lazy"
           />
           <Goose
-            visible={gooseState === 7}
+            $visible={gooseState === 7}
             src={PortalOut2}
             alt="Graphic of a portal with a mechanical goose walking out"
             loading="lazy"
           />
           <Goose
-            visible={gooseState === 8}
+            $visible={gooseState === 8}
             src={PortalOut3}
             alt="Graphic of a portal with a mechanical goose walking out"
             loading="lazy"
           />
           <Goose
-            visible={gooseState === 9}
+            $visible={gooseState === 9}
             src={PortalOut4}
             alt="Graphic of a portal with a mechanical goose walking out"
             loading="lazy"
           />
           <Goose
-            visible={gooseState >= 10}
+            $visible={gooseState >= 10}
             src={PortalOut5}
             alt="Graphic of a portal with a mechanical goose walking out"
             loading="lazy"
@@ -305,10 +305,10 @@ const fadeOut = keyframes`
   }
 `;
 
-const Goose = styled.img<{ visible: boolean }>`
+const Goose = styled.img<{ $visible: boolean }>`
   position: absolute;
   user-select: none;
-  animation: ${({ visible }) => (visible ? fadeIn : fadeOut)} 0.2s ease-out
+  animation: ${({ $visible }) => ($visible ? fadeIn : fadeOut)} 0.2s ease-out
     forwards;
 
   height: 320px;

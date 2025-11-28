@@ -93,8 +93,8 @@ const Projects: React.FC = () => {
             <PinkNavigationBar />
             <YellowNavigationBar />
             <NavyNavigationBar />
-            <WarmWhiteNavigationBar active={section === 3} />
-            <OffWhiteNavigationBar active={section === 1} />
+            <WarmWhiteNavigationBar $active={section === 3} />
+            <OffWhiteNavigationBar $active={section === 1} />
 
             <Project3TrapezoidContainer>
               <TrapezoidImage
@@ -124,7 +124,7 @@ const Projects: React.FC = () => {
               </Project3Text>
             </Project3TrapezoidContainer>
 
-            <Project2TrapezoidContainer active={section === 2 || section === 1}>
+            <Project2TrapezoidContainer $active={section === 2 || section === 1}>
               <TrapezoidImage
                 onClick={() => {
                   setSection(2);
@@ -152,7 +152,7 @@ const Projects: React.FC = () => {
               </Project2Text>
             </Project2TrapezoidContainer>
 
-            <Project1TrapezoidContainer active={section === 1}>
+            <Project1TrapezoidContainer $active={section === 1}>
               <TrapezoidImage
                 onClick={() => {
                   setSection(1);
@@ -232,7 +232,7 @@ const Projects: React.FC = () => {
                 </RightProjectContainer>
               </Project3Container>
             </Project3Section>
-            <Project2Section active={section !== 3}>
+            <Project2Section $active={section !== 3}>
               <ProjectContainer>
                 <LeftProjectContainer>
                   <ProjectImage
@@ -285,7 +285,7 @@ const Projects: React.FC = () => {
                 </RightProjectContainer>
               </ProjectContainer>
             </Project2Section>
-            <Project1Section active={section === 1}>
+            <Project1Section $active={section === 1}>
               <ProjectContainer>
                 <LeftProjectContainer>
                   <ProjectImage
@@ -586,13 +586,13 @@ const MoveSection2UpMobile = keyframes`
   }
 `;
 
-const Project2Section = styled(Project3Section)<{ active: boolean }>`
+const Project2Section = styled(Project3Section)<{ $active: boolean }>`
   height: 558px;
   bottom: 30px;
   background-color: ${({ theme }) => theme.colors.primary.white};
   z-index: 2;
-  ${({ active }) =>
-    active
+  ${({ $active }) =>
+    $active
       ? css`
           animation: ${css`
             ${MoveSection2Up} 0.3s ease forwards;
@@ -606,8 +606,8 @@ const Project2Section = styled(Project3Section)<{ active: boolean }>`
   ${mediaQueries.medium} {
     height: 825px;
     bottom: 0px;
-    ${({ active }) =>
-      active
+    ${({ $active }) =>
+      $active
         ? css`
             animation: ${css`
               ${MoveSection2UpTablet} 0.3s ease forwards;
@@ -622,8 +622,8 @@ const Project2Section = styled(Project3Section)<{ active: boolean }>`
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
     height: 662px;
     bottom: 0px;
-    ${({ active }) =>
-      active
+    ${({ $active }) =>
+      $active
         ? css`
             animation: ${css`
               ${MoveSection2UpMobile} 0.3s ease forwards;
@@ -691,13 +691,13 @@ const MoveSection1UpMobile = keyframes`
   }
 `;
 
-const Project1Section = styled(Project3Section)<{ active: boolean }>`
+const Project1Section = styled(Project3Section)<{ $active: boolean }>`
   height: 556px;
   background-color: ${({ theme }) => theme.colors.secondary.white};
   z-index: 3;
   border-top: 2px solid ${({ theme }) => theme.colors.secondary.navy};
-  ${({ active }) =>
-    active
+  ${({ $active }) =>
+    $active
       ? css`
           animation: ${css`
             ${MoveSection1Up} 0.3s ease forwards;
@@ -710,8 +710,8 @@ const Project1Section = styled(Project3Section)<{ active: boolean }>`
         `}
   ${mediaQueries.medium} {
     height: 800px;
-    ${({ active }) =>
-      active
+    ${({ $active }) =>
+      $active
         ? css`
             animation: ${css`
               ${MoveSection1UpTablet} 0.3s ease forwards;
@@ -725,8 +725,8 @@ const Project1Section = styled(Project3Section)<{ active: boolean }>`
   }
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
     height: 637px;
-    ${({ active }) =>
-      active
+    ${({ $active }) =>
+      $active
         ? css`
             animation: ${css`
               ${MoveSection1UpMobile} 0.3s ease forwards;
@@ -859,12 +859,12 @@ const MoveTrapezoid2UpLargeMobile = keyframes`
 `;
 
 const Project2TrapezoidContainer = styled(Project3TrapezoidContainer)<{
-  active: boolean;
+  $active: boolean;
 }>`
   z-index: 30;
   left: 80%;
-  ${({ active }) =>
-    active
+  ${({ $active }) =>
+    $active
       ? css`
           animation: ${css`
             ${MoveTrapezoid2Up} 0.3s ease forwards;
@@ -877,8 +877,8 @@ const Project2TrapezoidContainer = styled(Project3TrapezoidContainer)<{
         `}
   ${mediaQueries.medium} {
     left: 60%;
-    ${({ active }) =>
-      active
+    ${({ $active }) =>
+      $active
         ? css`
             animation: ${css`
               ${MoveTrapezoid2UpTablet} 0.3s ease forwards;
@@ -892,8 +892,8 @@ const Project2TrapezoidContainer = styled(Project3TrapezoidContainer)<{
   }
   ${mediaQueries.tablet} {
     left: 60%;
-    ${({ active }) =>
-      active
+    ${({ $active }) =>
+      $active
         ? css`
             animation: ${css`
               ${MoveTrapezoid2UpMediumTablet} 0.3s ease forwards;
@@ -906,8 +906,8 @@ const Project2TrapezoidContainer = styled(Project3TrapezoidContainer)<{
           `}
   }
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
-    ${({ active }) =>
-      active
+    ${({ $active }) =>
+      $active
         ? css`
             animation: ${css`
               ${MoveTrapezoid2UpLargeMobile} 0.3s ease forwards;
@@ -921,8 +921,8 @@ const Project2TrapezoidContainer = styled(Project3TrapezoidContainer)<{
   }
   ${mediaQueries.largeMobile} {
     right: 30%;
-    ${({ active }) =>
-      active
+    ${({ $active }) =>
+      $active
         ? css`
             animation: ${css`
               ${MoveTrapezoid2UpLargeMobile} 0.3s ease forwards;
@@ -1017,12 +1017,12 @@ const MoveTrapezoid1UpLargeMobile = keyframes`
 `;
 
 const Project1TrapezoidContainer = styled(Project3TrapezoidContainer)<{
-  active: boolean;
+  $active: boolean;
 }>`
   z-index: 21;
   left: 10%;
-  ${({ active }) =>
-    active
+  ${({ $active }) =>
+    $active
       ? css`
           animation: ${css`
             ${MoveTrapezoid1Up} 0.3s ease forwards;
@@ -1034,8 +1034,8 @@ const Project1TrapezoidContainer = styled(Project3TrapezoidContainer)<{
           `};
         `}
   ${mediaQueries.medium} {
-    ${({ active }) =>
-      active
+    ${({ $active }) =>
+      $active
         ? css`
             animation: ${css`
               ${MoveTrapezoid1UpTablet} 0.3s ease forwards;
@@ -1048,8 +1048,8 @@ const Project1TrapezoidContainer = styled(Project3TrapezoidContainer)<{
           `}
   }
   ${mediaQueries.tablet} {
-    ${({ active }) =>
-      active
+    ${({ $active }) =>
+      $active
         ? css`
             animation: ${css`
               ${MoveTrapezoid1UpMediumTablet} 0.3s ease forwards;
@@ -1062,8 +1062,8 @@ const Project1TrapezoidContainer = styled(Project3TrapezoidContainer)<{
           `}
   }
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
-    ${({ active }) =>
-      active
+    ${({ $active }) =>
+      $active
         ? css`
             animation: ${css`
               ${MoveTrapezoid1UpLargeMobile} 0.3s ease forwards;
@@ -1078,8 +1078,8 @@ const Project1TrapezoidContainer = styled(Project3TrapezoidContainer)<{
   ${mediaQueries.largeMobile} {
     left: 12%;
     z-index: 30;
-    ${({ active }) =>
-      active
+    ${({ $active }) =>
+      $active
         ? css`
             animation: ${css`
               ${MoveTrapezoid1UpLargeMobile} 0.3s ease forwards;
@@ -1113,20 +1113,20 @@ const YellowNavigationBar = styled.div`
   border-top: 2px solid ${({ theme }) => theme.colors.secondary.navy};
 `;
 
-const WarmWhiteNavigationBar = styled.div<{ active: boolean }>`
+const WarmWhiteNavigationBar = styled.div<{ $active: boolean }>`
   background-color: transparent;
   width: 100%;
   height: 30px;
   position: relative;
   z-index: -1;
-  ${({ active }) =>
-    active &&
+  ${({ $active }) =>
+    $active &&
     css`
       background-color: ${({ theme }) => theme.colors.secondary.navy};
     `}
 `;
 
-const OffWhiteNavigationBar = styled.div<{ active: boolean }>`
+const OffWhiteNavigationBar = styled.div<{ $active: boolean }>`
   background-color: transparent;
   width: 100%;
   height: 30px;

@@ -13,7 +13,7 @@ interface AvatarProps extends ComponentPropsWithoutRef<"img"> {
 }
 
 interface AvatarContainerProps {
-  faded: boolean;
+  $faded: boolean;
 }
 
 const Avatar: React.FC<AvatarProps> = ({
@@ -39,7 +39,7 @@ const Avatar: React.FC<AvatarProps> = ({
         >
           <AvatarContainer
             className={className}
-            faded={
+            $faded={
               selectedOrganizer === null
                 ? false
                 : selectedOrganizer.name !== name
@@ -56,7 +56,7 @@ const Avatar: React.FC<AvatarProps> = ({
         >
           <AvatarContainer
             className={className}
-            faded={
+            $faded={
               selectedOrganizer === null
                 ? false
                 : selectedOrganizer.name !== name
@@ -114,7 +114,7 @@ const AvatarContainer = styled.div<AvatarContainerProps>`
     height: 48px;
   }
 
-  animation: ${({ faded }) => (faded ? fadeOut : fadeIn)} 0.2s ease-out forwards;
+  animation: ${({ $faded }) => ($faded ? fadeOut : fadeIn)} 0.2s ease-out forwards;
   transition: border-color 0.2s ease-out;
 
   &:hover {

@@ -19,9 +19,9 @@ import MobileMenu from "./mobileMenu";
 import MobileMenuHamburger from "./mobileMenuHamburger";
 
 export type TContainerProps = {
-  isScrolledDown: boolean;
-  isHidden: boolean;
-  background: string;
+  $isScrolledDown: boolean;
+  $isHidden: boolean;
+  $background: string;
 };
 
 const Navbar: React.FC<NavBarProps> = ({
@@ -62,9 +62,9 @@ const Navbar: React.FC<NavBarProps> = ({
 
   return isMediumOrSmaller !== undefined ? (
     <Container
-      isHidden={isHidden}
-      isScrolledDown={isScrolledDown}
-      background="transparent"
+      $isHidden={isHidden}
+      $isScrolledDown={isScrolledDown}
+      $background="transparent"
     >
       <InnerContainer>
         <div
@@ -108,10 +108,10 @@ const Navbar: React.FC<NavBarProps> = ({
 };
 
 const Container = styled.nav.attrs<TContainerProps>(
-  ({ isScrolledDown, background, isHidden }) => ({
+  ({ $isScrolledDown, $background, $isHidden }) => ({
     style: {
-      backgroundColor: isScrolledDown ? background : "transparent",
-      transform: isHidden
+      backgroundColor: $isScrolledDown ? $background : "transparent",
+      transform: $isHidden
         ? `translateY(-${NAVBAR_HEIGHT_PX}px)`
         : "translateY(0)",
     },

@@ -39,10 +39,10 @@ export interface CarouselProps extends React.ComponentPropsWithoutRef<"div"> {
 }
 
 export interface CarouselTrackProps {
-  resetPos: number;
-  direction: CarouselDirection;
-  speed: number;
-  isPaused: boolean;
+  $resetPos: number;
+  $direction: CarouselDirection;
+  $speed: number;
+  $isPaused: boolean;
 }
 
 /**
@@ -78,13 +78,13 @@ const CarouselSpacer = styled.div<CarouselSpacerProps>`
 `;
 
 const carouselAnimation = css<CarouselTrackProps>`
-  animation-name: ${({ direction, resetPos }) =>
-    direction === "left" ? moveLeft(resetPos) : moveRight(resetPos)};
-  animation-duration: ${({ speed }) => speed}s;
+  animation-name: ${({ $direction, $resetPos }) =>
+    $direction === "left" ? moveLeft($resetPos) : moveRight($resetPos)};
+  animation-duration: ${({ $speed }) => $speed}s;
   animation-iteration-count: infinite;
   animation-direction: normal;
   animation-timing-function: linear;
-  animation-play-state: ${({ isPaused }) => (isPaused ? "paused" : "running")};
+  animation-play-state: ${({ $isPaused }) => ($isPaused ? "paused" : "running")};
 `;
 
 const CarouselTrack = styled.div<CarouselTrackProps>`
@@ -181,10 +181,10 @@ const InfiniteCarousel: React.FC<CarouselProps> = ({
       <CarouselTrack
         ref={elementsRef}
         className="infinite-carousel--track"
-        resetPos={originalElementsWidth / 2} // since we duplicated the elements
-        direction={direction}
-        speed={speed}
-        isPaused={shouldStop}
+        $resetPos={originalElementsWidth / 2} // since we duplicated the elements
+        $direction={direction}
+        $speed={speed}
+        $isPaused={shouldStop}
       >
         {clonedElements}
       </CarouselTrack>

@@ -38,10 +38,10 @@ const TestimonialCarousel: React.FC = () => {
             <ImageBlock
               src={testimonial.image}
               alt={testimonial.name}
-              isActive={index === activeIndex}
-              baseRotation={imageStyles[index].rotation}
-              baseWidth={imageStyles[index].baseWidth}
-              baseWidthMobile={imageStyles[index].baseWidthMobile}
+              $isActive={index === activeIndex}
+              $baseRotation={imageStyles[index].rotation}
+              $baseWidth={imageStyles[index].baseWidth}
+              $baseWidthMobile={imageStyles[index].baseWidthMobile}
               onClick={() => handleIndexChange(index)}
             />
           </StyledBlockContainer>
@@ -55,11 +55,11 @@ const TestimonialCarousel: React.FC = () => {
           </LargeBodyMediumStyled>
         </StyledTitle>
         <QuoteContainer>
-          <QuoteImg align="start" src={OpenQuote} alt="Open Quote" />
+          <QuoteImg $align="start" src={OpenQuote} alt="Open Quote" />
           <StyledBody>
             {hackerTestimonialsData[activeIndex].description}
           </StyledBody>
-          <QuoteImg align="end" src={CloseQuote} alt="Close Quote" />
+          <QuoteImg $align="end" src={CloseQuote} alt="Close Quote" />
         </QuoteContainer>
         <CarouselNav
           numSlides={hackerTestimonialsData.length}
@@ -168,33 +168,33 @@ const StyledBlockContainer = styled.div`
 `;
 
 const ImageBlock = styled.img<{
-  isActive: boolean;
-  baseRotation: string;
-  baseWidth: string;
-  baseWidthMobile: string;
+  $isActive: boolean;
+  $baseRotation: string;
+  $baseWidth: string;
+  $baseWidthMobile: string;
 }>`
-  width: ${({ baseWidth }) => baseWidth};
+  width: ${({ $baseWidth }) => $baseWidth};
   border-radius: 10px;
   transition: transform 0.3s ease;
-  transform: ${({ isActive, baseRotation }) =>
-    isActive ? `scale(2.2) rotate(0deg)` : `scale(1) ${baseRotation}`};
+  transform: ${({ $isActive, $baseRotation }) =>
+    $isActive ? `scale(2.2) rotate(0deg)` : `scale(1) ${$baseRotation}`};
   cursor: pointer;
   display: block;
 
-  ${({ isActive, baseRotation }) =>
-    !isActive &&
+  ${({ $isActive, $baseRotation }) =>
+    !$isActive &&
     `
     &:hover {
-      transform: scale(1.1) ${baseRotation};
+      transform: scale(1.1) ${$baseRotation};
     }
   `}
 
   @media (max-width: 600px) {
-    width: ${({ baseWidthMobile }) => `calc(${baseWidthMobile} + 15px)`};
+    width: ${({ $baseWidthMobile }) => `calc(${$baseWidthMobile} + 15px)`};
   }
 
   ${mediaQueries.largeMobile} {
-    width: ${({ baseWidthMobile }) => baseWidthMobile};
+    width: ${({ $baseWidthMobile }) => $baseWidthMobile};
   }
 `;
 
@@ -248,8 +248,8 @@ const QuoteContainer = styled.div`
   align-self: stretch;
 `;
 
-const QuoteImg = styled.img<{ align: "start" | "end" }>`
-  align-self: ${({ align }) => (align === "start" ? "flex-start" : "flex-end")};
+const QuoteImg = styled.img<{ $align: "start" | "end" }>`
+  align-self: ${({ $align }) => ($align === "start" ? "flex-start" : "flex-end")};
   width: 31.5px;
   height: 29.5px;
 `;

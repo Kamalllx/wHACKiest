@@ -78,14 +78,14 @@ const About: React.FC = () => {
           </BelongWrapper>
         </Wrapper>
 
-        <Car1 alt="Car" src={CarImg} inView={welcomeDivInView} />
-        <Car2 alt="Car" src={CarImg} inView={PictureDivInView} />
+        <Car1 alt="Car" src={CarImg} $inView={welcomeDivInView} />
+        <Car2 alt="Car" src={CarImg} $inView={PictureDivInView} />
         <Car3
           alt="Car"
           src={CarImg}
-          inView={belongDivInView}
-          pictureInView={PictureDivInView}
-          welcomeInView={welcomeDivInView}
+          $inView={belongDivInView}
+          $pictureInView={PictureDivInView}
+          $welcomeInView={welcomeDivInView}
         />
 
         <Bubble alt="Bubble" src={BubbleImg} loading="lazy" />
@@ -167,13 +167,13 @@ const fadeOut = keyframes`
   }
 `;
 
-const Car1 = styled.img<{ inView: boolean }>`
+const Car1 = styled.img<{ $inView: boolean }>`
   position: absolute;
   width: 294px;
   top: 2%;
   left: 56%;
   visibility: visible;
-  animation: ${({ inView }) => (inView ? fadeIn : fadeOut)} 0.5s ease-in-out
+  animation: ${({ $inView }) => ($inView ? fadeIn : fadeOut)} 0.5s ease-in-out
     forwards;
 
   ${mediaQueries.large} {
@@ -211,14 +211,14 @@ const Car1 = styled.img<{ inView: boolean }>`
   }
 `;
 
-const Car2 = styled.img<{ inView: boolean }>`
+const Car2 = styled.img<{ $inView: boolean }>`
   position: absolute;
   width: 343px;
   top: 26%;
   left: 18%;
   visibility: visible;
   transform: scaleX(-1);
-  animation: ${({ inView }) => (inView ? fadeIn : fadeOut)} 0.5s ease-in-out
+  animation: ${({ $inView }) => ($inView ? fadeIn : fadeOut)} 0.5s ease-in-out
     forwards;
 
   ${mediaQueries.medium} {
@@ -237,17 +237,17 @@ const Car2 = styled.img<{ inView: boolean }>`
 `;
 
 const Car3 = styled.img<{
-  inView: boolean;
-  pictureInView: boolean;
-  welcomeInView: boolean;
+  $inView: boolean;
+  $pictureInView: boolean;
+  $welcomeInView: boolean;
 }>`
   position: absolute;
   width: 530px;
   top: 50%;
   left: 48%;
   visibility: visible;
-  animation: ${({ inView, pictureInView, welcomeInView }) =>
-      (!inView && pictureInView) || (!inView && welcomeInView)
+  animation: ${({ $inView, $pictureInView, $welcomeInView }) =>
+      (!$inView && $pictureInView) || (!$inView && $welcomeInView)
         ? fadeOut
         : fadeIn}
     0.5s ease-in-out forwards;

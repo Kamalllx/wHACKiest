@@ -117,10 +117,10 @@ const SponsorGrid: React.FC = () => {
         </SponsorRow>
       ))}
 
-      <Heading2White marginBottom="72px" mobileMarginBottom="40px">
+      <Heading2White $marginBottom="72px" $mobileMarginBottom="40px">
         ...and more to come
       </Heading2White>
-      <Heading2White marginBottom="32px" mobileMarginBottom="24px">
+      <Heading2White $marginBottom="32px" $mobileMarginBottom="24px">
         Our partners
       </Heading2White>
 
@@ -286,15 +286,15 @@ const StyledSponsor = styled(Sponsor)<{ num: number }>`
 `;
 
 const Heading2White = styled(Heading2)<{
-  marginBottom?: string;
-  mobileMarginBottom?: string;
+  $marginBottom?: string;
+  $mobileMarginBottom?: string;
 }>`
   text-align: center;
   color: ${({ theme }) => theme.colors.text.dark.white};
-  margin-bottom: ${({ marginBottom }) => marginBottom || "0"};
+  margin-bottom: ${({ $marginBottom }) => $marginBottom || "0"};
 
   ${mediaQueries.largeMobile} {
-    margin-bottom: ${({ mobileMarginBottom }) => mobileMarginBottom || "0px"};
+    margin-bottom: ${({ $mobileMarginBottom }) => $mobileMarginBottom || "0px"};
   }
 `;
 

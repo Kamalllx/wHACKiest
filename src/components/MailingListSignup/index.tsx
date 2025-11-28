@@ -21,7 +21,7 @@ interface MailingListSignupProps
 }
 
 interface CheckErrorsProps {
-  hasErrors: boolean;
+  $hasErrors: boolean;
 }
 
 const MailingListSignup: React.FC<MailingListSignupProps> = ({
@@ -90,7 +90,7 @@ const MailingListSignup: React.FC<MailingListSignupProps> = ({
         <FormWrapper>
           <StyledInput
             value={email}
-            hasErrors={hasErrors}
+            $hasErrors={hasErrors}
             onChange={(e: any) => {
               setEmail(e.target.value);
               setHasErrors(false);
@@ -130,7 +130,7 @@ const MailingListSignup: React.FC<MailingListSignupProps> = ({
           </ButtonWrapper>
         </FormWrapper>
         {(hasErrors || signUpState === SignUpState.SUBMITTED) && (
-          <ResultText hasErrors={hasErrors}>{resultMessage}</ResultText>
+          <ResultText $hasErrors={hasErrors}>{resultMessage}</ResultText>
         )}
       </InputWrapper>
     </form>
@@ -158,8 +158,8 @@ const StyledInput = styled.input<CheckErrorsProps>`
   }
   background: transparent;
   padding-left: 15px;
-  color: ${({ hasErrors }) =>
-    hasErrors
+  color: ${({ $hasErrors }) =>
+    $hasErrors
       ? ({ theme }) => theme.colors.state.error
       : ({ theme }) => theme.colors.text.dark.white};
   &:disabled {
@@ -198,8 +198,8 @@ const ButtonWrapper = styled.div`
 `;
 
 const ResultText = styled(Body)<CheckErrorsProps>`
-  color: ${({ hasErrors }) =>
-    hasErrors
+  color: ${({ $hasErrors }) =>
+    $hasErrors
       ? ({ theme }) => theme.colors.state.error
       : ({ theme }) => theme.colors.state.success};
   margin-top: 8px;

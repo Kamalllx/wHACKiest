@@ -23,8 +23,8 @@ export interface AccordionProps
 }
 
 export interface CollapsibleProps {
-  isOpen: boolean;
-  height: number; // height of the collapsible
+  $isOpen: boolean;
+  $height: number; // height of the collapsible
 }
 
 const Wrapper = styled.div`
@@ -39,7 +39,7 @@ const Wrapper = styled.div`
 export const Collapsible = styled.div<CollapsibleProps>`
   overflow: hidden;
   transition: height 0.3s ease-out;
-  height: ${(props: CollapsibleProps) => (props.isOpen ? props.height : "0")}px;
+  height: ${(props: CollapsibleProps) => (props.$isOpen ? props.$height : "0")}px;
 `;
 
 const getHeight = (id: string) => {
@@ -63,11 +63,14 @@ const Question = styled(BodyBold)`
   height: full;
 `;
 
-const Answer = styled(Body)`
+const Answer = styled.div`
   text-align: left;
   line-height: 160%;
   height: auto;
   color: ${theme.colors.text.dark.gray};
+  font-family: "Satoshi", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
 `;
 
 export const Accordion: React.FC<AccordionProps> = ({
@@ -128,7 +131,7 @@ export const Accordion: React.FC<AccordionProps> = ({
           {questionMinusLastWord}{" "}
           <span style={{ whiteSpace: "nowrap" }}>{questionLastWord}</span>
         </Question>
-        <Collapsible isOpen={isOpen} height={height}>
+        <Collapsible $isOpen={isOpen} $height={height}>
           <Answer id={question}>{answer}</Answer>
         </Collapsible>
       </QuestionAnswerWrapper>

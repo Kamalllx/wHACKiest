@@ -51,37 +51,37 @@ const TalkingPoints: React.FC = () => {
         <StyledCloud
           src={TalkingPointsCloud1}
           alt="cloud"
-          topPercentage={0}
-          left="0px"
-          right="auto"
+          $topPercentage={0}
+          $left="0px"
+          $right="auto"
         />
         <StyledCloud
           src={TalkingPointsCloud2}
           alt="cloud"
-          topPercentage={40}
-          left="0px"
-          right="auto"
+          $topPercentage={40}
+          $left="0px"
+          $right="auto"
         />
         <StyledCloud
           src={TalkingPointsCloud3}
           alt="cloud"
-          topPercentage={60}
-          left="auto"
-          right="0px"
+          $topPercentage={60}
+          $left="auto"
+          $right="0px"
         />
         <StyledCloud
           src={TalkingPointsCloud4}
           alt="cloud"
-          topPercentage={65}
-          left="auto"
-          right="0px"
+          $topPercentage={65}
+          $left="auto"
+          $right="0px"
         />
         <StyledCloud
           src={TalkingPointsCloud5}
           alt="cloud"
-          topPercentage={90}
-          left="0"
-          right="auto"
+          $topPercentage={90}
+          $left="0"
+          $right="auto"
         />
         <HeadingContainer>
           <Heading1>Canada&apos;s</Heading1>
@@ -98,51 +98,51 @@ const TalkingPoints: React.FC = () => {
               <AnimatedImagesWrapper ref={containerRef}>
                 <StyledBubble
                   src={TalkingPoints1}
-                  inView={!createDivInView && !makeDivInView}
+                  $inView={!createDivInView && !makeDivInView}
                   alt="small-bubble"
-                  containerWidth={containerWidth}
+                  $containerWidth={containerWidth}
                 />
                 <StyledBubble
                   src={TalkingPoints2}
-                  inView={createDivInView && !makeDivInView}
+                  $inView={createDivInView && !makeDivInView}
                   alt="small-bubble"
-                  containerWidth={containerWidth}
+                  $containerWidth={containerWidth}
                 />
                 <StyledBubble
-                  inView={makeDivInView}
+                  $inView={makeDivInView}
                   src={TalkingPoints3}
                   alt="small-bubble"
-                  containerWidth={containerWidth}
+                  $containerWidth={containerWidth}
                 />
                 {(topBubbleInView || cardBoardBoxInView) && (
                   <StyledWrenchPink
                     src={WrenchPink}
                     alt="wrench-pink"
-                    containerWidth={containerWidth}
+                    $containerWidth={containerWidth}
                   />
                 )}
                 {(topBubbleInView || cardBoardBoxInView) && (
                   <StyledHammerGreen
                     src={HammerGreen}
                     alt="hammer-green"
-                    containerWidth={containerWidth}
+                    $containerWidth={containerWidth}
                   />
                 )}
                 <StyledBubbleLeft
                   src={SmallBubble}
                   alt="small-bubble"
-                  containerWidth={containerWidth}
+                  $containerWidth={containerWidth}
                 />
                 <StyledBubbleRight
                   src={SmallBubble}
                   alt="small-bubble"
-                  containerWidth={containerWidth}
+                  $containerWidth={containerWidth}
                 />
                 <StyledBubbleTop
                   ref={topBubbleRef}
                   src={SmallBubble}
                   alt="small-bubble"
-                  containerWidth={containerWidth}
+                  $containerWidth={containerWidth}
                 />
                 <StyledBoxNoTools
                   src={BoxNoTools}
@@ -299,7 +299,7 @@ const fadeInDown = keyframes`
   }
 `;
 
-const TalkingPointsParagraphWrapper = styled.div<{ inView: boolean }>`
+const TalkingPointsParagraphWrapper = styled.div<{ $inView: boolean }>`
   top: 0px;
   bottom: 0px;
   margin: auto;
@@ -309,7 +309,7 @@ const TalkingPointsParagraphWrapper = styled.div<{ inView: boolean }>`
 
   ${mediaQueries.medium} {
     margin-bottom: 0px;
-    animation: ${({ inView }) => (inView ? fadeOutUp : fadeInDown)} 0.5s
+    animation: ${({ $inView }) => ($inView ? fadeOutUp : fadeInDown)} 0.5s
       ease-out forwards;
   }
 `;
@@ -401,18 +401,18 @@ const fadeOutAndDown = keyframes`
   }
 `;
 
-const StyledBubble = styled.img<{ containerWidth: number; inView: boolean }>`
+const StyledBubble = styled.img<{ $containerWidth: number; $inView: boolean }>`
   position: absolute;
   display: block;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
   margin-right: auto;
-  bottom: calc(${(props) => props.containerWidth / 3.5}px);
+  bottom: calc(${(props) => props.$containerWidth / 3.5}px);
   left: 0px;
   right: 7%;
   width: 50%;
-  animation: ${({ inView }) => (inView ? fadeInAndUp : fadeOutAndDown)} 0.5s
+  animation: ${({ $inView }) => ($inView ? fadeInAndUp : fadeOutAndDown)} 0.5s
     ease-out forwards;
 `;
 
@@ -425,14 +425,14 @@ const wrenchAnimation = keyframes`
   }
 `;
 
-const StyledWrenchPink = styled.img<{ containerWidth: number }>`
+const StyledWrenchPink = styled.img<{ $containerWidth: number }>`
   position: absolute;
   display: block;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
   margin-right: auto;
-  bottom: calc(${(props) => props.containerWidth / 3.7}px);
+  bottom: calc(${(props) => props.$containerWidth / 3.7}px);
   right: 14%;
   width: 20%;
   animation: ${wrenchAnimation} 2s ease-in-out forwards;
@@ -447,7 +447,7 @@ const hammerAnimation = keyframes`
   }
 `;
 
-const StyledHammerGreen = styled.img<{ containerWidth: number }>`
+const StyledHammerGreen = styled.img<{ $containerWidth: number }>`
   position: absolute;
   display: block;
   margin-top: auto;
@@ -460,51 +460,51 @@ const StyledHammerGreen = styled.img<{ containerWidth: number }>`
   animation: ${hammerAnimation} 2s ease-in-out forwards;
 `;
 
-const StyledBubbleLeft = styled.img<{ containerWidth: number }>`
+const StyledBubbleLeft = styled.img<{ $containerWidth: number }>`
   position: absolute;
   display: block;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
   margin-right: auto;
-  bottom: calc(${(props) => props.containerWidth * 0.74}px);
+  bottom: calc(${(props) => props.$containerWidth * 0.74}px);
   right: 38%;
   width: 5%;
 `;
 
-const StyledBubbleRight = styled.img<{ containerWidth: number }>`
+const StyledBubbleRight = styled.img<{ $containerWidth: number }>`
   position: absolute;
   display: block;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
   margin-right: auto;
-  bottom: calc(${(props) => props.containerWidth * 0.7}px);
+  bottom: calc(${(props) => props.$containerWidth * 0.7}px);
   right: 29%;
   width: 7%;
 `;
 
-const StyledBubbleTop = styled.img<{ containerWidth: number }>`
+const StyledBubbleTop = styled.img<{ $containerWidth: number }>`
   position: absolute;
   display: block;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
   margin-right: auto;
-  bottom: calc(${(props) => props.containerWidth * 0.8}px);
+  bottom: calc(${(props) => props.$containerWidth * 0.8}px);
   right: 27%;
   width: 11%;
 `;
 
 const StyledCloud = styled.img<{
-  topPercentage: number;
-  left: string;
-  right: string;
+  $topPercentage: number;
+  $left: string;
+  $right: string;
 }>`
   position: absolute;
-  top: ${(props) => props.topPercentage}%;
-  left: ${(props) => props.left};
-  right: ${(props) => props.right};
+  top: ${(props) => props.$topPercentage}%;
+  left: ${(props) => props.$left};
+  right: ${(props) => props.$right};
   height: min-content;
 
   ${mediaQueries.tablet} {
