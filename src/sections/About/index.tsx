@@ -45,18 +45,22 @@ const About: React.FC = () => {
       <StyledContentWrapper>
         <Wrapper>
           <WelcomeWrapper ref={welcomeDivRef}>
-            <Heading2> Welcome to wHACKiest</Heading2>
+            <Heading2>Welcome to wHACKiest 2025</Heading2>
             <StyledBody>
-              Join 500+ hackers for a
-              hackathon like no other. Discover a community of like-minded
-              hackers, connect with world-class mentors, and build because you
-              love to build. At wHACKiest, you&apos;re in for a great
-              time with engaging workshops, fun activities, and the chance to
-              network with the most exciting companies in tech!
+              Join us for an extraordinary two-phase hackathon organized by
+              CodeRIT and the Department of Computer Science and Engineering.
+              wHACKiest 2025 brings together passionate developers, designers,
+              and innovators for 24 hours of intensive on-campus hacking!
               <br />
               <br />
-              We cover food and lodging so
-              you can focus on turning your dreams into reality.
+              <strong>Phase 1: Ideathon</strong> (December 1-10) - Register
+              your team and pitch your innovative ideas online. The best ideas
+              move forward to the main event.
+              <br />
+              <br />
+              <strong>Phase 2: 24-Hour Hackathon</strong> (December 12-13) -
+              Top 60 selected teams will compete on campus at RIT Bengaluru,
+              with mentorship, resources, and ₹50,000 in prizes up for grabs!
             </StyledBody>
           </WelcomeWrapper>
           <Road alt="Road" src={RoadImg} />
@@ -67,13 +71,19 @@ const About: React.FC = () => {
             ref={pictureDivRef}
           />
           <BelongWrapper ref={belongDivRef}>
-            <Heading2>You belong in tech</Heading2>
+            <Heading2>Everyone belongs here</Heading2>
             <StyledBody>
-              Getting into tech can be hard—we&apos;re here to make that easier!
-              wHACKiest is dedicated to building an inclusive experience
-              for attendees. We strive to foster a space
-              where everyone feels welcome to pursue their dreams and create
-              something they&apos;re proud of.
+              Whether you're a first-year student or a final-year veteran,
+              whether you code in Python or design in Figma, there's a place for
+              you at wHACKiest 2025. We believe in fostering an inclusive
+              environment where diverse perspectives come together to create
+              something extraordinary.
+              <br />
+              <br />
+              With no registration fee and teams of 2-4 members from any branch
+              or year, we're making innovation accessible to everyone. Special
+              prizes for Best Freshers Team (₹5,000) and Best Female Team
+              (₹5,000) celebrate the diversity that makes tech stronger!
             </StyledBody>
           </BelongWrapper>
         </Wrapper>
@@ -264,7 +274,6 @@ const Car3 = styled.img<{
   ${mediaQueries.custom(640)} {
     visibility: hidden;
   }
-  //
 `;
 
 const StyledContentWrapper = styled(ContentWrapper)`
@@ -480,4 +489,3 @@ const Bubble = styled.img`
 `;
 
 export default About;
-
