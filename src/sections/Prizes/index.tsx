@@ -20,13 +20,13 @@ const PRIZE_WORDS = [
   "WINNER",
   "Rs 18,000",
   "GRAND TOTAL",
-  "Rs 50,000+"
+  "Rs 50,000"
 ];
 
 // 2× font sizes
 const PRIZE_FONT_SIZES = [
   140, 120, 90, 110, 90, 110,
-  100, 130, 110, 150, 160, 190, 180, 260
+  100, 130, 110, 120, 120, 120, 120, 120
 ];
 
 const PRIZE_FRAME_DELAYS = [

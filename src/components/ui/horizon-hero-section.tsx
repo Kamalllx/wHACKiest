@@ -643,7 +643,7 @@ export const Component = () => {
           <h1 className="hero-title">& Dept of CSE</h1>
           <div className="hero-subtitle cosmos-subtitle">
             <p className="subtitle-line">Department of Computer Science & Engineering</p>
-            <p className="subtitle-line">Rajalakshmi Institute of Technology</p>
+            <p className="subtitle-line">Ramaiah Institute of Technology</p>
           </div>
         </section>
         
