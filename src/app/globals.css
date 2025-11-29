@@ -191,3 +191,247 @@ body {
 .no-visible-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* ============================================
+   HORIZON HERO SECTION STYLES
+   ============================================ */
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hero-title {
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 100;
+  letter-spacing: 0.3em;
+  color: white;
+  margin: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.title-char {
+  display: inline-block;
+}
+
+.hero-subtitle {
+  margin-top: 30px;
+  opacity: 0.7;
+}
+
+.cosmos-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.subtitle-line {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  margin: 10px 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.scroll-progress {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  z-index: 100;
+}
+
+.scroll-text {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.5);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.progress-track {
+  width: 100px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  transition: width 0.1s ease-out;
+}
+
+.section-counter {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.scroll-sections {
+  position: relative;
+  z-index: 5;
+}
+
+.content-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.content-section .hero-title {
+  font-size: clamp(3rem, 10vw, 8rem);
+}
+
+.content-section .subtitle-line {
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+}
+
+/* wHACKiest Finale Section Styles */
+.whackiest-finale {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.whackiest-title-container {
+  width: 100%;
+  max-width: 1200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.whackiest-subtitle {
+  margin-top: 20px;
+}
+
+.finale-line {
+  font-size: clamp(1.2rem, 2.5vw, 2rem) !important;
+  font-weight: 600;
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.8), 0 0 60px rgba(59, 130, 246, 0.5), 0 0 80px rgba(6, 182, 212, 0.3);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .side-menu {
+    left: 20px;
+  }
+  
+  .hero-title {
+    letter-spacing: 0.15em;
+  }
+  
+  .subtitle-line {
+    letter-spacing: 0.1em;
+  }
+  
+  .scroll-progress {
+    bottom: 20px;
+  }
+}
+
+/* ============================================
+   UPSTACKING ANIMATION FOR POST-HERO CONTENT
+   ============================================ */
+
+.main-content-wrapper {
+  position: relative;
+  z-index: 50;
+  background: #141425;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: clip; /* Use clip instead of hidden to preserve sticky behavior */
+}
+
+/* Reset any horizontal shifting from child elements */
+.main-content-wrapper * {
+  max-width: 100%;
+}
+
+.upstack-section {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  width: 100%;
+}
+
+.upstack-section.visible {
+  opacity: 1;
+}
+
+/* For sections that need sticky scroll to work, remove transform */
+.upstack-section.allow-sticky {
+  transform: none !important;
+}
+
+.upstack-enter {
+  animation: upstackEnter 1s ease-out forwards;
+}
+
+@keyframes upstackEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(150px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

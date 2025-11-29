@@ -41,6 +41,8 @@ export const TextHoverEffect = ({
       maxWidth: "88%",
       overflow: "visible",
       marginBottom: "-70px",
+      marginTop: "-50px",
+
       }}
     >
       <defs>

@@ -297,36 +297,36 @@ const StyledContentWrapper = styled(ContentWrapper)`
 
 const Wrapper = styled.div`
   position: relative;
-  width: 1272px;
+  width: 100%;
+  max-width: 1272px;
+  margin: 0 auto;
 
   ${mediaQueries.custom(1280)} {
-    left: -7%;
+    max-width: 100%;
   }
 
   ${mediaQueries.medium} {
-    left: -20%;
+    max-width: 100%;
   }
 
   ${mediaQueries.tablet} {
-    width: 1174px;
-    left: -25%;
+    max-width: 100%;
   }
 
   ${mediaQueries.custom(740)} {
-    left: -38%;
+    max-width: 100%;
   }
 
   ${mediaQueries.mediumTablet} {
-    left: -34%;
+    max-width: 100%;
   }
 
   ${mediaQueries.largeMobile} {
-    width: 1205px;
-    left: -45%;
+    max-width: 100%;
   }
 
   ${mediaQueries.mobile} {
-    left: -60%;
+    max-width: 100%;
   }
 `;
 

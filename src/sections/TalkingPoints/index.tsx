@@ -195,7 +195,7 @@ const TalkingPoints: React.FC = () => {
 };
 
 const StyledContentWrapper = styled(ContentWrapper)`
-  overflow-x: clip;
+  overflow: visible; /* Allow sticky to work */
   width: 100%;
   max-width: 1512px;
   padding: 69px 138px 69px 138px;
@@ -243,6 +243,7 @@ const ColumnRowWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
+  overflow: visible; /* Ensure sticky works */
 
   ${mediaQueries.medium} {
     grid-template-columns: 1fr;
