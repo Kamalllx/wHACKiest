@@ -6,13 +6,12 @@ import { ParticleTextEffect } from "@/components/ui/particle-text-effect";
 import { mediaQueries } from "@/utils/responsive";
 import * as THREE from "three";
 
-// Prize data with progressive sizing - building up to Grand Prize
 const PRIZE_WORDS = [
   "wHACKiest",
   "PRIZE POOL",
   "Best Female Team",
   "Rs 5,000",
-  "Best Freshers Team", 
+  "Best Freshers Team",
   "Rs 5,000",
   "2nd Runner Up",
   "Rs 10,000",
@@ -24,147 +23,88 @@ const PRIZE_WORDS = [
   "Rs 50,000+"
 ];
 
-// Progressive font sizes - getting bigger towards Grand Prize
+// 2× font sizes
 const PRIZE_FONT_SIZES = [
-  70,   // wHACKiest
-  60,   // PRIZE POOL
-  45,   // Best Female Team
-  55,   // Rs 5,000
-  45,   // Best Freshers Team
-  55,   // Rs 5,000
-  50,   // 2nd Runner Up
-  65,   // Rs 10,000
-  55,   // Runner Up
-  75,   // Rs 12,000
-  80,   // WINNER
-  95,   // Rs 18,000
-  90,   // GRAND TOTAL
-  130   // Rs 50,000+ - BIGGEST
+  140, 120, 90, 110, 90, 110,
+  100, 130, 110, 150, 160, 190, 180, 260
 ];
 
-// Frame delays - longer for important reveals
 const PRIZE_FRAME_DELAYS = [
-  200,  // wHACKiest
-  180,  // PRIZE POOL
-  160,  // Best Female Team
-  180,  // Rs 5,000
-  160,  // Best Freshers Team
-  180,  // Rs 5,000
-  180,  // 2nd Runner Up
-  200,  // Rs 10,000
-  180,  // Runner Up
-  220,  // Rs 12,000
-  250,  // WINNER
-  280,  // Rs 18,000
-  300,  // GRAND TOTAL
-  400   // Rs 50,000+ - longest display
+  200, 180, 160, 180, 160, 180,
+  180, 200, 180, 220, 250, 280, 300, 400
 ];
 
-// Colors - vibrant neon colors
 const PRIZE_COLORS = [
-  { r: 139, g: 92, b: 246 },   // Purple - wHACKiest
-  { r: 59, g: 130, b: 246 },   // Blue - Prize Pool
-  { r: 236, g: 72, b: 153 },   // Pink - Best Female
-  { r: 255, g: 215, b: 0 },    // Gold
-  { r: 52, g: 211, b: 153 },   // Emerald - Freshers
-  { r: 255, g: 215, b: 0 },    // Gold
-  { r: 205, g: 127, b: 50 },   // Bronze
-  { r: 255, g: 165, b: 0 },    // Orange
-  { r: 192, g: 192, b: 192 },  // Silver
-  { r: 255, g: 215, b: 0 },    // Gold
-  { r: 255, g: 215, b: 0 },    // Gold - Winner
-  { r: 255, g: 215, b: 0 },    // Gold
-  { r: 139, g: 92, b: 246 },   // Purple - Grand Total
-  { r: 255, g: 215, b: 0 },    // Ultimate Gold
+  { r: 139, g: 92, b: 246 },
+  { r: 59, g: 130, b: 246 },
+  { r: 236, g: 72, b: 153 },
+  { r: 255, g: 215, b: 0 },
+  { r: 52, g: 211, b: 153 },
+  { r: 255, g: 215, b: 0 },
+  { r: 205, g: 127, b: 50 },
+  { r: 255, g: 165, b: 0 },
+  { r: 192, g: 192, b: 192 },
+  { r: 255, g: 215, b: 0 },
+  { r: 255, g: 215, b: 0 },
+  { r: 255, g: 215, b: 0 },
+  { r: 139, g: 92, b: 246 },
+  { r: 255, g: 215, b: 0 }
 ];
 
 declare global {
   interface Window {
     THREE: typeof THREE;
-    VANTA: {
-      RINGS: (options: VantaRingsOptions) => VantaEffect;
-    };
+    VANTA: { RINGS: (opt: any) => any };
   }
 }
 
-interface VantaRingsOptions {
-  el: HTMLElement;
-  THREE: typeof THREE;
-  mouseControls?: boolean;
-  touchControls?: boolean;
-  gyroControls?: boolean;
-  minHeight?: number;
-  minWidth?: number;
-  scale?: number;
-  scaleMobile?: number;
-  backgroundColor?: number;
-  color?: number;
-}
-
-interface VantaEffect {
-  destroy: () => void;
-  setOptions: (options: Partial<VantaRingsOptions>) => void;
-}
-
-const Prizes: React.FC = () => {
-  const vantaRef = useRef<HTMLDivElement>(null);
-  const [vantaEffect, setVantaEffect] = useState<VantaEffect | null>(null);
+const Prizes = () => {
+  const vantaRef = useRef(null);
 
   useEffect(() => {
-    let effect: VantaEffect | null = null;
-    let script: HTMLScriptElement | null = null;
+    let effect: any = null;
 
-    const loadVanta = async () => {
-      if (!vantaRef.current) return;
+    const script = document.createElement("script");
+    script.src = "/vanta.rings.min.js";
+    script.async = true;
 
-      // Set THREE on window for Vanta
-      window.THREE = THREE;
+    script.onload = () => {
+      if (window.VANTA && vantaRef.current) {
+        effect = window.VANTA.RINGS({
+          el: vantaRef.current,
+          THREE,
+          mouseControls: true,
+          touchControls: true,
+          scale: 1.2,
+          scaleMobile: 1.1,
 
-      // Load the Vanta script
-      script = document.createElement("script");
-      script.src = "/vanta.rings.min.js";
-      script.async = true;
-      
-      script.onload = () => {
-        if (window.VANTA && vantaRef.current) {
-          effect = window.VANTA.RINGS({
-            el: vantaRef.current,
-            THREE: THREE,
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 0.6,  // Smaller rings
-            scaleMobile: 0.5,
-            backgroundColor: 0x141425,  // Original bg color
-            color: 0x8b5cf6, // Purple rings
-          });
-          setVantaEffect(effect);
-        }
-      };
+          // ⭐ Slightly brighter background
+          backgroundColor: 0x111026,
 
-      document.body.appendChild(script);
+          color: 0x8b5cf6
+        });
+      }
     };
 
-    loadVanta();
+    document.body.appendChild(script);
 
     return () => {
-      if (effect) {
-        effect.destroy();
-      }
-      if (script && script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
+      effect?.destroy?.();
+      script.remove();
     };
   }, []);
 
   return (
     <SectionContainer id="prizes">
-      {/* Particle Text Effect on top - Main focus */}
+      
+      {/* ⭐ Section Heading */}
+      <SectionHeading>
+        PRIZES
+      </SectionHeading>
+
       <ParticleOverlay>
-        <ParticleContainer>
-          <ParticleTextEffect 
+        <ParticleCanvasWrapper>
+          <ParticleTextEffect
             words={PRIZE_WORDS}
             fontSizes={PRIZE_FONT_SIZES}
             frameDelays={PRIZE_FRAME_DELAYS}
@@ -172,10 +112,9 @@ const Prizes: React.FC = () => {
             transparent={true}
             className="particle-canvas"
           />
-        </ParticleContainer>
+        </ParticleCanvasWrapper>
       </ParticleOverlay>
-      
-      {/* Vanta Rings below with gap */}
+
       <VantaBackground ref={vantaRef} />
     </SectionContainer>
   );
@@ -185,69 +124,63 @@ const SectionContainer = styled.section`
   position: relative;
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+
+  /* ⭐ Slightly brighter navy */
+  background: #111026;
+
   overflow: hidden;
-  background: #141425;
   padding-top: 80px;
 `;
 
+const SectionHeading = styled.h2`
+  position: relative;
+  z-index: 30;
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+
+  /* subtle glowing title */
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4),
+               0 0 30px rgba(139, 92, 246, 0.3);
+
+  margin-bottom: 40px;
+
+  @media (max-width: 700px) {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+`;
+
 const ParticleOverlay = styled.div`
-  position: relative;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 20;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
+  pointer-events: none;
 `;
 
-const VantaBackground = styled.div`
-  position: relative;
+const ParticleCanvasWrapper = styled.div`
   width: 100%;
-  height: 50vh;
-  max-height: 400px;
-  z-index: 1;
-  margin-top: 40px;
-  
-  ${mediaQueries.medium} {
-    height: 40vh;
-    max-height: 300px;
-  }
-  
-  ${mediaQueries.largeMobile} {
-    height: 35vh;
-    max-height: 250px;
-  }
-`;
-
-const ParticleContainer = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  height: 50vh;
-  min-height: 400px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   .particle-canvas {
     width: 100% !important;
     height: 100% !important;
-    max-width: 1100px;
-    max-height: 550px;
   }
+`;
 
-  ${mediaQueries.medium} {
-    height: 45vh;
-    min-height: 350px;
-  }
-
-  ${mediaQueries.largeMobile} {
-    height: 40vh;
-    min-height: 300px;
-  }
+const VantaBackground = styled.div`
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 `;
 
 export default Prizes;

@@ -318,7 +318,7 @@ const intact: Sponsor = {
 };
 
 const convex: Sponsor = {
-  link: "https://convex.dev/c/hackthenorth",
+  link: "https://convex.dev/c/wHACKiest",
   alt: "Convex logo",
   src: Convex,
   title: "Convex",
@@ -339,7 +339,7 @@ const convex: Sponsor = {
       </BodyText>
       <ArrowLinkStyled>
         <SponsorLink
-          href="https://convex.dev/c/hackthenorth"
+          href="https://convex.dev/c/wHACKiest"
           target="_blank"
           rel="noreferrer"
         >
@@ -608,7 +608,7 @@ const awsstartups = {
 };
 
 const deshaw = {
-  link: "https://www.deshaw.com/recruit/internships/Sponsorship/24HacktheNorthAug24",
+  link: "https://www.deshaw.com/recruit/internships/Sponsorship/WHACKiest",
   alt: "D. E. Shaw logo",
   src: DEShaw,
   title: "D. E. Shaw",

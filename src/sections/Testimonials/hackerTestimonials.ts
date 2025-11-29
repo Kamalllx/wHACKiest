@@ -1,7 +1,7 @@
-﻿// Placeholder avatars - 1 boy, 2 girls
-const boyAvatar = "https://api.dicebear.com/7.x/avataaars/svg?seed=rahul&backgroundColor=b6e3f4&clothesColor=3c4f5c&skinColor=ae5d29";
-const girlAvatar1 = "https://api.dicebear.com/7.x/avataaars/svg?seed=priya&backgroundColor=ffdfbf&hairColor=2c1b18&clothesColor=ff488e&skinColor=d08b5b";
-const girlAvatar2 = "https://api.dicebear.com/7.x/avataaars/svg?seed=ananya&backgroundColor=c0aede&hairColor=4a312c&clothesColor=5199e4&skinColor=f8d25c";
+﻿// Student-looking placeholder avatars - 1 boy, 2 girls
+const boyAvatar = "https://api.dicebear.com/7.x/notionists-neutral/svg?seed=rahul&backgroundColor=b6e3f4";
+const girlAvatar1 = "https://api.dicebear.com/7.x/notionists-neutral/svg?seed=priya&backgroundColor=ffd5dc";
+const girlAvatar2 = "https://api.dicebear.com/7.x/notionists-neutral/svg?seed=ananya&backgroundColor=d1d4f9";
 
 export type HackerTestimonialsData = {
   id: number;

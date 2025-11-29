@@ -110,8 +110,7 @@ const DidWeMissAnything: React.FC<DidWeMissAnythingProps> = ({
               () => Fathom.trackEvent("Sign Up: Clicked Email Contact") // Sign Up: Clicked Email Contact
             }
           >
-            hello@coderit.org
-          </StyledLink>
+coderit.netlify.app   </StyledLink>
         )}
       </SubtextWrapper>
       <SocialsWrapper>

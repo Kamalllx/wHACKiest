@@ -12,7 +12,6 @@ const EventTimeline = dynamic(() => import('@/sections/EventTimeline'), { ssr: f
 const ProblemStatements = dynamic(() => import('@/sections/ProblemStatements'), { ssr: false });
 const Stats = dynamic(() => import('@/sections/Stats'), { ssr: false });
 const TalkingPoints = dynamic(() => import('@/sections/TalkingPoints'), { ssr: false });
-const Projects = dynamic(() => import('@/sections/Projects'), { ssr: false });
 const Testimonials = dynamic(() => import('@/sections/Testimonials'), { ssr: false });
 const FAQ = dynamic(() => import('@/sections/FAQ'), { ssr: false });
 const Footer = dynamic(() => import('@/sections/Footer'), { ssr: false });
@@ -103,12 +102,7 @@ export default function Home() {
               <TalkingPoints />
             </Suspense>
           </UpstackSection>
-          
-          <UpstackSection delay={100}>
-            <Suspense fallback={<div />}>
-              <Projects />
-            </Suspense>
-          </UpstackSection>
+
           
           <UpstackSection delay={100}>
             <Suspense fallback={<div />}>

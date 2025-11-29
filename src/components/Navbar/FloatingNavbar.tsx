@@ -56,14 +56,14 @@ const FloatingNavbar: React.FC = () => {
       icon: (
         <IconBrandInstagram className="h-full w-full text-neutral-300" />
       ),
-      href: "https://instagram.com/coderit",
+      href: "https://instagram.com/code_rit",
     },
     {
       title: "LinkedIn",
       icon: (
         <IconBrandLinkedin className="h-full w-full text-neutral-300" />
       ),
-      href: "https://linkedin.com/company/coderit",
+      href: "https://www.linkedin.com/company/coderitclub",
     },
     {
       title: "Contact",

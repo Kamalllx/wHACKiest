@@ -40,7 +40,7 @@ export const Bubble3 = "/images/hero/bubble_3.png";
 export const BubbleImg = "/images/about/bubble.png";
 export const CarImg = "/images/about/car-min.png";
 export const RoadImg = "/images/about/road-min.png";
-export const AboutPicturesImg = "/images/about/about-pictures-min.png";
+export const AboutPicturesImg = "/images/about/about-pictures-min.svg";
 
 // Stats
 export const lastPaper = "/images/stats/last-paper.svg";

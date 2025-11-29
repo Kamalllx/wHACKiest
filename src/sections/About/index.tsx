@@ -453,7 +453,7 @@ const AboutPictures = styled.img`
   position: absolute;
   width: 50%;
   top: 28%;
-  left: 50%;
+  left: 60%;
 
   ${mediaQueries.large} {
     width: 40%;
