@@ -5,18 +5,36 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextHoverEffect } from './text-hover-effect';
 import { TracingBeam } from './tracing-beam';
+// @ts-ignore - Three.js postprocessing modules
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+// @ts-ignore - Three.js postprocessing modules
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
+// @ts-ignore - Three.js postprocessing modules
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 
 gsap.registerPlugin(ScrollTrigger);
 
+interface ThreeRefs {
+  scene: THREE.Scene | null;
+  camera: THREE.PerspectiveCamera | null;
+  renderer: THREE.WebGLRenderer | null;
+  composer: EffectComposer | null;
+  stars: THREE.Points[];
+  nebula: THREE.Mesh | null;
+  mountains: THREE.Mesh[];
+  animationId: number | null;
+  targetCameraX?: number;
+  targetCameraY?: number;
+  targetCameraZ?: number;
+  locations?: number[];
+}
+
 export const Component = () => {
-  const containerRef = useRef(null);
-  const canvasRef = useRef(null);
-  const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
-  const scrollProgressRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const scrollProgressRef = useRef<HTMLDivElement>(null);
   const heroContentRef = useRef<HTMLDivElement>(null);
 
   const smoothCameraPos = useRef({ x: 0, y: 30, z: 100 });
@@ -28,7 +46,7 @@ export const Component = () => {
   const [heroOpacity, setHeroOpacity] = useState(1);
   const totalSections = 4;
   
-  const threeRefs = useRef({
+  const threeRefs = useRef<ThreeRefs>({
     scene: null,
     camera: null,
     renderer: null,
@@ -36,7 +54,11 @@ export const Component = () => {
     stars: [],
     nebula: null,
     mountains: [],
-    animationId: null
+    animationId: null,
+    targetCameraX: 0,
+    targetCameraY: 30,
+    targetCameraZ: 100,
+    locations: []
   });
 
   // Initialize Three.js
@@ -336,14 +358,18 @@ export const Component = () => {
 
       // Update stars
       refs.stars.forEach((starField, i) => {
-        if (starField.material.uniforms) {
-          starField.material.uniforms.time.value = time;
+        const material = starField.material as THREE.ShaderMaterial;
+        if (material.uniforms) {
+          material.uniforms.time.value = time;
         }
       });
 
       // Update nebula
-      if (refs.nebula && refs.nebula.material.uniforms) {
-        refs.nebula.material.uniforms.time.value = time * 0.5;
+      if (refs.nebula) {
+        const nebulaMaterial = refs.nebula.material as THREE.ShaderMaterial;
+        if (nebulaMaterial.uniforms) {
+          nebulaMaterial.uniforms.time.value = time * 0.5;
+        }
       }
 
       // Smooth camera movement with easing
@@ -352,8 +378,8 @@ export const Component = () => {
         
         // Calculate smooth position with easing
         smoothCameraPos.current.x += (refs.targetCameraX - smoothCameraPos.current.x) * smoothingFactor;
-        smoothCameraPos.current.y += (refs.targetCameraY - smoothCameraPos.current.y) * smoothingFactor;
-        smoothCameraPos.current.z += (refs.targetCameraZ - smoothCameraPos.current.z) * smoothingFactor;
+        smoothCameraPos.current.y += ((refs.targetCameraY || 0) - smoothCameraPos.current.y) * smoothingFactor;
+        smoothCameraPos.current.z += ((refs.targetCameraZ || 0) - smoothCameraPos.current.z) * smoothingFactor;
         
         // Add subtle floating motion
         const floatX = Math.sin(time * 0.1) * 2;
@@ -406,17 +432,20 @@ export const Component = () => {
       // Dispose Three.js resources
       refs.stars.forEach(starField => {
         starField.geometry.dispose();
-        starField.material.dispose();
+        const material = starField.material as THREE.Material;
+        material.dispose();
       });
 
       refs.mountains.forEach(mountain => {
         mountain.geometry.dispose();
-        mountain.material.dispose();
+        const material = mountain.material as THREE.Material;
+        material.dispose();
       });
 
       if (refs.nebula) {
         refs.nebula.geometry.dispose();
-        refs.nebula.material.dispose();
+        const material = refs.nebula.material as THREE.Material;
+        material.dispose();
       }
 
       if (refs.renderer) {
@@ -427,7 +456,7 @@ export const Component = () => {
 
   const getLocation = () => {
     const { current: refs } = threeRefs;
-    const locations = [];
+    const locations: number[] = [];
     refs.mountains.forEach( (mountain, i) => {
       locations[i] = mountain.position.z
     })

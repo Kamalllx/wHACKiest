@@ -60,36 +60,7 @@ const Projects: React.FC = () => {
       <CloudImg3 src={Cloud1} alt="misty transparent cloud" loading="lazy" />
       <CloudImg4 src={Cloud2} alt="misty transparent cloud" loading="lazy" />
       <ContentWrapper style={{ marginBottom: "100px" }}>
-        <HeadingContainer>
-          <TitleContainer>
-            <Heading1>Dream</Heading1>
-            <TextCutout
-              src={BigTextCutout}
-              alt="big"
-              aria-label="big"
-              loading="lazy"
-            />
-            <Heading1>and build </Heading1>
-            <TextCutout
-              src={BiggerTextCutout}
-              alt="bigger"
-              aria-label="bigger"
-              loading="lazy"
-            />
-          </TitleContainer>
-          <BodyTextWrapper>
-            <BodyText>
-              Every year, we strive to support hackers around the world to
-              create something amazing!{" "}
-              {windowWidth && windowWidth > 1024 && <br />}
-              Check out some of the incredible projects that have come to life
-              at wHACKiest:
-            </BodyText>
-          </BodyTextWrapper>
-        </HeadingContainer>
-
-        <TableWrapper>
-          <ProjectsContainer>
+        <ProjectsContainer>
             <PinkNavigationBar />
             <YellowNavigationBar />
             <NavyNavigationBar />
@@ -342,7 +313,6 @@ const Projects: React.FC = () => {
               </ProjectContainer>
             </Project1Section>
           </ProjectsContainer>
-        </TableWrapper>
       </ContentWrapper>
     </SectionWrapper>
   );

@@ -13,47 +13,76 @@ interface DidWeMissAnythingProps {
 
 const Wrapper = styled.div`
   padding-top: 5%;
-  margin: 0;
+  margin: 0 auto;
   padding-bottom: 7%;
   width: 88%;
   max-width: 600px;
+  
+  ${mediaQueries.largeMobile} {
+    width: 90%;
+    padding: 20px 16px 40px;
+  }
 `;
 
 const Heading = styled(Heading2)`
-  color: ${theme.colors.secondary.navy};
+  color: ${theme.colors.text.light.white};
+  
+  ${mediaQueries.largeMobile} {
+    font-size: 1.75rem;
+    text-align: center;
+  }
 `;
 
 const Subtext = styled(Body)`
-  color: ${theme.colors.secondary.navy};
+  color: ${theme.colors.text.light.gray};
 `;
+
 const SubtextWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 2%;
   margin-bottom: 3%;
+  
+  ${mediaQueries.largeMobile} {
+    justify-content: center;
+    text-align: center;
+  }
 `;
 
 const StyledLink = styled.a`
   font-family: "Satoshi";
   font-size: 16px;
   font-weight: 700;
-  color: ${theme.colors.secondary.navy};
+  color: ${theme.colors.primary.cyan};
   width: fit-content;
   text-decoration: none;
   outline: none;
+  transition: color 0.2s ease;
+  
   &:hover,
   &:focus {
     cursor: pointer;
+    color: ${theme.colors.primary.blue};
   }
 `;
+
 const SocialsWrapper = styled.div`
   display: flex;
   width: 50%;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5%;
+  
   ${mediaQueries.tablet} {
     width: 80%;
+  }
+  
+  ${mediaQueries.largeMobile} {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto 20px;
+    justify-content: center;
+    gap: 24px;
   }
 `;
 const DidWeMissAnything: React.FC<DidWeMissAnythingProps> = ({
@@ -83,10 +112,7 @@ const DidWeMissAnything: React.FC<DidWeMissAnythingProps> = ({
           >
             hello@coderit.org
           </StyledLink>
-        )}{" "}
-        <span role="img" aria-label="heart emoji">
-          &nbsp;😊
-        </span>
+        )}
       </SubtextWrapper>
       <SocialsWrapper>
         {Object.entries(SOCIALS).map(
@@ -101,9 +127,9 @@ const DidWeMissAnything: React.FC<DidWeMissAnythingProps> = ({
             >
               <Icon
                 name={icon}
-                color={theme.colors.secondary.navy}
+                color={theme.colors.text.light.gray}
                 hover={true}
-                hoverColor={theme.colors.primary.blue}
+                hoverColor={theme.colors.primary.cyan}
               />
             </a>
           )

@@ -54,7 +54,7 @@ const Stats = () => {
             $inView={bookInView}
             src={schools}
             alt="195 schools"
-            aria-label="195 schools"
+            aria-label="600 + Participants"
             loading="lazy"
           />
           <TravelBlock

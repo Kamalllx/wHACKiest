@@ -342,11 +342,17 @@ body {
 
 .whackiest-title-container {
   width: 100%;
-  max-width: 1200px;
-  height: 200px;
+  max-width: 1600px;
+  height: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.whackiest-title-container svg {
+  width: 100% !important;
+  height: 350px !important;
+  max-width: 1400px;
 }
 
 .whackiest-subtitle {

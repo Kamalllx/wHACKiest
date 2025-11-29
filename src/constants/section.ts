@@ -10,5 +10,7 @@ export enum SectionId {
   SPONSORS = "sponsors",
   FAQ = "faq",
   FOOTER = "footer",
+  PRIZES = "prizes",
+  PROBLEM_STATEMENTS = "problem-statements",
 }
 

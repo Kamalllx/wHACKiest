@@ -84,7 +84,7 @@ const TalkingPoints: React.FC = () => {
           $right="auto"
         />
         <HeadingContainer>
-          <Heading1>Canada&apos;s</Heading1>
+          <Heading1>RIT&apos;s</Heading1>
           <StyledBiggestText src={BiggestTextCutout} alt="biggest" />
           <Heading1>hackathon!</Heading1>
         </HeadingContainer>
@@ -155,35 +155,34 @@ const TalkingPoints: React.FC = () => {
           <TextSectionWrapper>
             <TalkingPointsTextWrapper>
               <TalkingPointsParagraphWrapper $inView={createDivInView}>
-                <StyledHeading2>Join a global community</StyledHeading2>
+                <StyledHeading2>Join RIT&apos;s Hacker Community</StyledHeading2>
                 <StyledLargeBodyMedium ref={joinDivRef}>
-                  Connect with curious and creative students from schools across
-                  the globe. Chat with industry leaders, sponsors, and mentors
-                  and open your mind to endless possibilities. We welcome
-                  hackers of all experience levels to collaborate and build
-                  something they are proud of.
+                  Connect with innovative minds from Ramaiah Institute of Technology.
+                  Team up with fellow students, get mentorship from industry experts,
+                  and push boundaries together. Whether you&apos;re a first-timer or seasoned hacker,
+                  wHACKiest welcomes you to build something extraordinary.
                 </StyledLargeBodyMedium>
               </TalkingPointsParagraphWrapper>
             </TalkingPointsTextWrapper>
             <TalkingPointsTextWrapper>
               <TalkingPointsParagraphWrapper $inView={makeDivInView}>
-                <StyledHeading2>Create something amazing!</StyledHeading2>
+                <StyledHeading2>Innovate & Create</StyledHeading2>
                 <StyledLargeBodyMedium ref={createDivRef}>
-                  Get inspired and build! Don’t have the resources you need to
-                  make your project come to life? We’re here to help! We provide
-                  workshops, mentorship, and the tech you need all in one place,
-                  so you can focus on hacking!
+                  Two phases, one mission: bring your ideas to life! Ideathon lets you
+                  pitch and refine concepts. The 24-hour Hackathon gives you the stage
+                  to build, code, and create. We provide the tools, mentorship, and support—
+                  you bring the innovation.
                 </StyledLargeBodyMedium>
               </TalkingPointsParagraphWrapper>
             </TalkingPointsTextWrapper>
             <TalkingPointsTextWrapper>
               <TalkingPointsParagraphWrapper $inView={false}>
-                <StyledHeading2>Make lasting memories</StyledHeading2>
+                <StyledHeading2>Win & Celebrate</StyledHeading2>
                 <StyledLargeBodyMedium ref={makeDivRef}>
-                  Take a break from hacking and enjoy fun activities planned
-                  just for you! From therapy dogs, to cup stacking, to karaoke,
-                  and more—we make sure that every hacker has the chance to work
-                  hard and play hard.
+                  Compete for over ₹50,000 in prizes across multiple categories.
+                  Special tracks for freshers and female hackers ensure everyone
+                  gets a fair shot. Beyond prizes, make lasting connections,
+                  gain real-world skills, and create memories that last.
                 </StyledLargeBodyMedium>
               </TalkingPointsParagraphWrapper>
             </TalkingPointsTextWrapper>
@@ -322,7 +321,7 @@ const StyledHeading2 = styled(Heading2)`
 `;
 
 const StyledLargeBodyMedium = styled(LargeBodyMedium)`
-  color: ${theme.colors.secondary.navy};
+  color: ${theme.colors.text.light.white};
 
   ${mediaQueries.medium} {
     text-align: center;

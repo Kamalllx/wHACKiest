@@ -47,20 +47,15 @@ const About: React.FC = () => {
           <WelcomeWrapper ref={welcomeDivRef}>
             <Heading2>Welcome to wHACKiest 2025</Heading2>
             <StyledBody>
-              Join us for an extraordinary two-phase hackathon organized by
-              CodeRIT and the Department of Computer Science and Engineering.
-              wHACKiest 2025 brings together passionate developers, designers,
-              and innovators for 24 hours of intensive on-campus hacking!
+              Join RIT&apos;s biggest hackathon! A two-phase event by CodeRIT and the CSE Department.
               <br />
               <br />
-              <strong>Phase 1: Ideathon</strong> (December 1-10) - Register
-              your team and pitch your innovative ideas online. The best ideas
-              move forward to the main event.
+              <strong>Phase 1: Ideathon</strong> - Pitch your ideas online (Dec 1-10)
+              <br />
+              <strong>Phase 2: Hackathon</strong> - Top 60 teams compete for 24 hours on campus (Dec 12-13)
               <br />
               <br />
-              <strong>Phase 2: 24-Hour Hackathon</strong> (December 12-13) -
-              Top 60 selected teams will compete on campus at RIT Bengaluru,
-              with mentorship, resources, and ₹50,000 in prizes up for grabs!
+              Rs 50,000 in prizes. Zero registration fee.
             </StyledBody>
           </WelcomeWrapper>
           <Road alt="Road" src={RoadImg} />
@@ -73,17 +68,10 @@ const About: React.FC = () => {
           <BelongWrapper ref={belongDivRef}>
             <Heading2>Everyone belongs here</Heading2>
             <StyledBody>
-              Whether you're a first-year student or a final-year veteran,
-              whether you code in Python or design in Figma, there's a place for
-              you at wHACKiest 2025. We believe in fostering an inclusive
-              environment where diverse perspectives come together to create
-              something extraordinary.
+              First-year or final-year, coder or designer - there&apos;s a place for you.
               <br />
               <br />
-              With no registration fee and teams of 2-4 members from any branch
-              or year, we're making innovation accessible to everyone. Special
-              prizes for Best Freshers Team (₹5,000) and Best Female Team
-              (₹5,000) celebrate the diversity that makes tech stronger!
+              Teams of 2-4 from any branch. Special prizes for Best Freshers (Rs 5,000) and Best Female Team (Rs 5,000).
             </StyledBody>
           </BelongWrapper>
         </Wrapper>
@@ -109,9 +97,16 @@ const CloudImg1 = styled.img`
   left: 0;
   top: 0;
   z-index: -1;
+  max-width: 50%;
+  opacity: 0.7;
 
   ${mediaQueries.medium} {
-    visibility: hidden;
+    max-width: 40%;
+    opacity: 0.5;
+  }
+
+  ${mediaQueries.tablet} {
+    display: none;
   }
 `;
 
@@ -120,9 +115,16 @@ const CloudImg2 = styled.img`
   right: 0;
   top: 20%;
   z-index: -1;
+  max-width: 50%;
+  opacity: 0.7;
 
   ${mediaQueries.medium} {
-    visibility: hidden;
+    max-width: 40%;
+    opacity: 0.5;
+  }
+
+  ${mediaQueries.tablet} {
+    display: none;
   }
 `;
 
@@ -131,9 +133,16 @@ const CloudImg3 = styled.img`
   left: 0;
   top: 40%;
   z-index: -1;
+  max-width: 50%;
+  opacity: 0.7;
 
   ${mediaQueries.medium} {
-    visibility: hidden;
+    max-width: 40%;
+    opacity: 0.5;
+  }
+
+  ${mediaQueries.tablet} {
+    display: none;
   }
 `;
 
@@ -142,9 +151,16 @@ const CloudImg4 = styled.img`
   right: 0;
   top: 60%;
   z-index: -1;
+  max-width: 50%;
+  opacity: 0.7;
 
   ${mediaQueries.medium} {
-    visibility: hidden;
+    max-width: 40%;
+    opacity: 0.5;
+  }
+
+  ${mediaQueries.tablet} {
+    display: none;
   }
 `;
 
@@ -153,9 +169,16 @@ const CloudImg5 = styled.img`
   right: 30%;
   top: 5%;
   z-index: -1;
+  max-width: 40%;
+  opacity: 0.7;
 
   ${mediaQueries.medium} {
-    visibility: hidden;
+    max-width: 30%;
+    opacity: 0.5;
+  }
+
+  ${mediaQueries.tablet} {
+    display: none;
   }
 `;
 
@@ -368,7 +391,7 @@ const WelcomeWrapper = styled.div`
 
 const StyledBody = styled(LargeBodyMedium)`
   margin-top: 2%;
-  color: ${theme.colors.secondary.navy};
+  color: rgba(255, 255, 255, 0.9);
   line-height: 140%;
 
   ${mediaQueries.tablet} {

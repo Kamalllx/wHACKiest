@@ -68,11 +68,7 @@ const Footer: React.FC = () => {
           </TeamMemberNameContainer>
         </HeadingContainer>
       </ContentWrapper>
-      <OrganizerCarousel
-        selectedOrganizer={selectedOrganizer}
-        handleOnHover={handleOnHover}
-        handleOnLeave={handleOnLeave}
-      />
+
       <ContentWrapper>
         <BottomFooterContainer>
           <Divider />
@@ -104,7 +100,7 @@ const Footer: React.FC = () => {
               </a>
             </div>
             <div className="footer-group">
-              <p className="footer-link">Copyright © Techyon, 2024</p>
+              <p className="footer-link">Copyright © CodeRIT, 2025</p>
             </div>
           </FooterLinks>
         </BottomFooterContainer>

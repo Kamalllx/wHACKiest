@@ -136,32 +136,13 @@ class Particle {
 
 interface ParticleTextEffectProps {
   words?: string[]
-  colors?: Array<{r: number, g: number, b: number}>
-  fontSizes?: number[]
-  frameDelays?: number[]
-  transparent?: boolean
-  className?: string
 }
 
 const DEFAULT_WORDS = ["HELLO", "21st.dev", "ParticleTextEffect", "BY", "KAINXU"]
-const DEFAULT_COLORS = [
-  { r: 255, g: 215, b: 0 },   // Gold
-  { r: 139, g: 92, b: 246 },  // Purple
-  { r: 59, g: 130, b: 246 },  // Blue
-  { r: 236, g: 72, b: 153 },  // Pink
-  { r: 34, g: 211, b: 238 },  // Cyan
-]
 
-export function ParticleTextEffect({ 
-  words = DEFAULT_WORDS,
-  colors = DEFAULT_COLORS,
-  fontSizes,
-  frameDelays,
-  transparent = false,
-  className = ""
-}: ParticleTextEffectProps) {
+export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffectProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const animationRef = useRef<number | null>(null)
+  const animationRef = useRef<number>()
   const particlesRef = useRef<Particle[]>([])
   const frameCountRef = useRef(0)
   const wordIndexRef = useRef(0)
@@ -191,19 +172,18 @@ export function ParticleTextEffect({
     }
   }
 
-  const nextWord = (word: string, canvas: HTMLCanvasElement, wordIndex: number) => {
+  const nextWord = (word: string, canvas: HTMLCanvasElement) => {
+    // const ctx = canvas.getContext("2d")!
+
     // Create off-screen canvas for text rendering
     const offscreenCanvas = document.createElement("canvas")
     offscreenCanvas.width = canvas.width
     offscreenCanvas.height = canvas.height
     const offscreenCtx = offscreenCanvas.getContext("2d")!
 
-    // Get font size for this word (progressive sizing)
-    const fontSize = fontSizes && fontSizes[wordIndex] ? fontSizes[wordIndex] : 100
-
     // Draw text
     offscreenCtx.fillStyle = "white"
-    offscreenCtx.font = `bold ${fontSize}px Arial`
+    offscreenCtx.font = "bold 100px Arial"
     offscreenCtx.textAlign = "center"
     offscreenCtx.textBaseline = "middle"
     offscreenCtx.fillText(word, canvas.width / 2, canvas.height / 2)
@@ -211,9 +191,12 @@ export function ParticleTextEffect({
     const imageData = offscreenCtx.getImageData(0, 0, canvas.width, canvas.height)
     const pixels = imageData.data
 
-    // Get color for this word from colors array
-    const colorIndex = wordIndex % colors.length
-    const newColor = colors[colorIndex]
+    // Generate new color
+    const newColor = {
+      r: Math.random() * 255,
+      g: Math.random() * 255,
+      b: Math.random() * 255,
+    }
 
     const particles = particlesRef.current
     let particleIndex = 0
@@ -286,13 +269,9 @@ export function ParticleTextEffect({
     const ctx = canvas.getContext("2d")!
     const particles = particlesRef.current
 
-    // Background - transparent or with motion blur
-    if (transparent) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-    } else {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.1)"
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-    }
+    // Background with motion blur
+    ctx.fillStyle = "rgba(0, 0, 0, 0.1)"
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
 
     // Update and draw particles
     for (let i = particles.length - 1; i >= 0; i--) {
@@ -325,16 +304,11 @@ export function ParticleTextEffect({
       })
     }
 
-    // Auto-advance words with custom frame delays
+    // Auto-advance words
     frameCountRef.current++
-    const currentDelay = frameDelays && frameDelays[wordIndexRef.current] 
-      ? frameDelays[wordIndexRef.current] 
-      : 240
-    
-    if (frameCountRef.current >= currentDelay) {
-      frameCountRef.current = 0
+    if (frameCountRef.current % 240 === 0) {
       wordIndexRef.current = (wordIndexRef.current + 1) % words.length
-      nextWord(words[wordIndexRef.current], canvas, wordIndexRef.current)
+      nextWord(words[wordIndexRef.current], canvas)
     }
 
     animationRef.current = requestAnimationFrame(animate)
@@ -348,7 +322,7 @@ export function ParticleTextEffect({
     canvas.height = 500
 
     // Initialize with first word
-    nextWord(words[0], canvas, 0)
+    nextWord(words[0], canvas)
 
     // Start animation
     animate()
@@ -394,10 +368,18 @@ export function ParticleTextEffect({
   }, [])
 
   return (
-    <canvas
-      ref={canvasRef}
-      className={`${className}`}
-      style={{ maxWidth: "100%", height: "auto", background: transparent ? 'transparent' : 'black' }}
-    />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black p-4">
+      <canvas
+        ref={canvasRef}
+        className="border border-gray-800 rounded-lg shadow-2xl"
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
+      <div className="mt-4 text-white text-sm text-center max-w-md">
+        <p className="mb-2">Particle Text Effect</p>
+        <p className="text-gray-400 text-xs">
+          Right-click and hold while moving mouse to destroy particles • Words change automatically every 4 seconds
+        </p>
+      </div>
+    </div>
   )
 }
