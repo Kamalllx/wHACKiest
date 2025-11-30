@@ -134,15 +134,7 @@ coderit.netlify.app   </StyledLink>
           )
         )}
       </SocialsWrapper>
-      <MailingListSignup
-        placeholder={
-          windowWidth > 1125
-            ? "Sign up for the latest from wHACKiest!"
-            : "Sign up for the latest!"
-        }
-      >
-        <p>Submit</p>
-      </MailingListSignup>
+
     </Wrapper>
   );
 };

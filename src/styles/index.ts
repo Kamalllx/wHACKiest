@@ -31,7 +31,7 @@ export const theme: DefaultTheme = {
       yellow: "#BAB19E",
       green: "#75DAB6",
       white: "#FCFCFC",
-      navy: "#223A60",
+      navy: "#ffffffff",
     },
     state: {
       error: "#FE8888",

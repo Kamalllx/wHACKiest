@@ -4,7 +4,79 @@ import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import styled from "styled-components";
 
-// --- Pure Minimalist Icons (No Backgrounds) ---
+// -----------------------------------------------------------------------------
+// BACKGROUND ELEMENTS (Grid + Neon Blobs + Circuit Lines)
+// -----------------------------------------------------------------------------
+
+const BackgroundDecor = styled.div`
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+
+  /* Subtle grid */
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+
+  background-color: rgba(0, 0, 0, 0.25);
+`;
+
+const FloatingBlobs = styled.div`
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    filter: blur(140px);
+    opacity: 0.12;
+    border-radius: 50%;
+    animation: float 14s infinite ease-in-out alternate;
+  }
+
+  &::before {
+    top: -120px;
+    left: -80px;
+    background: #9a4dff;
+  }
+
+  &::after {
+    bottom: -120px;
+    right: -80px;
+    background: #00e0ff;
+    animation-delay: -7s;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(60px) scale(1.1); }
+  }
+`;
+
+const CircuitLines = styled.div`
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  mask-image: radial-gradient(circle at center, white 30%, transparent 80%);
+
+  svg {
+    opacity: 0.08;
+  }
+`;
+
+// -----------------------------------------------------------------------------
+// ICON SET (Your existing icons, untouched)
+// -----------------------------------------------------------------------------
 
 const IconBase = ({ children, className }: { children: React.ReactNode; className?: string }) => (
   <div className={`flex items-center justify-center text-zinc-100 ${className}`}>
@@ -23,9 +95,21 @@ const RocketIcon = () => (
   </IconBase>
 );
 
+const micSvgStyle = { transform: "translateY(-1px)" };
+
 const MicIcon = () => (
   <IconBase>
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="28"
+      height="28"
+      style={micSvgStyle}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
       <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
       <line x1="12" y1="19" x2="12" y2="22"/>
@@ -80,20 +164,28 @@ const CodeIcon = () => (
   </IconBase>
 );
 
-// --- Styled Components (Structure Only) ---
+// -----------------------------------------------------------------------------
+// TIMELINE WRAPPERS
+// -----------------------------------------------------------------------------
 
 const TimelineWrapper = styled.section`
+  position: relative;
   width: 100%;
-  padding: 100px 0;
+  padding: 140px 0;
+  z-index: 0;
 `;
 
 const TimelineContainer = styled.div`
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 5;
 `;
 
-// --- Data ---
+// -----------------------------------------------------------------------------
+// TIMELINE CONTENT (Your original timeline untouched)
+// -----------------------------------------------------------------------------
 
 const timelineData = [
   {
@@ -102,44 +194,49 @@ const timelineData = [
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-3">
           <RocketIcon />
-          <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">Kickoff</span>
+          <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">
+            Kickoff
+          </span>
         </div>
-        
+
         <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
           Registration Opens
         </h3>
-        
+
         <p className="text-zinc-400 text-lg md:text-xl leading-relaxed mb-8 max-w-2xl">
           The gateway to innovation opens here. Register your squad for the premier hackathon at RIT. 
           Submit your innovative ideas early.
         </p>
 
         <div className="flex flex-wrap gap-8 text-base text-zinc-300 font-medium">
-            <div className="flex items-center gap-3">
-               <span className="h-px w-6 bg-zinc-600"></span>
-               Team Size: 2-4 Members
-            </div>
-            <div className="flex items-center gap-3">
-               <span className="h-px w-6 bg-zinc-600"></span>
-               Registration Fee: Free
-            </div>
+          <div className="flex items-center gap-3">
+            <span className="h-px w-6 bg-zinc-600"></span>
+            Team Size: 2-4 Members
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="h-px w-6 bg-zinc-600"></span>
+            Registration Fee: Free
+          </div>
         </div>
       </div>
     ),
   },
+
   {
     title: "Dec 4",
     content: (
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-3">
           <FlagIcon />
-          <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">14:30 IST</span>
+          <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">
+            14:30 IST
+          </span>
         </div>
 
         <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
           Inauguration Ceremony
         </h3>
-        
+
         <p className="text-zinc-400 text-lg md:text-xl leading-relaxed mb-2">
           Join us at <span className="text-white">ESB Seminar Hall 1</span>.
         </p>
@@ -149,13 +246,16 @@ const timelineData = [
       </div>
     ),
   },
+
   {
     title: "Dec 6",
     content: (
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-3">
           <ClockIcon />
-          <span className="text-red-500 font-mono text-sm uppercase tracking-widest">Deadline</span>
+          <span className="text-red-500 font-mono text-sm uppercase tracking-widest">
+            Deadline
+          </span>
         </div>
 
         <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
@@ -163,9 +263,7 @@ const timelineData = [
         </h3>
 
         <div className="border-l-2 border-red-500 pl-6">
-          <p className="text-zinc-200 text-xl font-semibold mb-2">
-            11:59 PM Sharp
-          </p>
+          <p className="text-zinc-200 text-xl font-semibold mb-2">11:59 PM Sharp</p>
           <p className="text-zinc-500 text-base">
             Ensure team details are finalized. No late entries accepted.
           </p>
@@ -173,64 +271,81 @@ const timelineData = [
       </div>
     ),
   },
+
   {
     title: "Dec 9-10",
     content: (
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-3">
           <PresentationIcon />
-          <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">Selection Round</span>
+          <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">
+            Selection Round
+          </span>
         </div>
 
         <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
           Ideathon: The Pitch
         </h3>
-        
+
         <p className="text-zinc-400 text-lg md:text-xl leading-relaxed max-w-xl">
           5-minute rapid fire pitch to industry judges. Prove your concept's viability.
         </p>
       </div>
     ),
   },
+
   {
     title: "Dec 11",
     content: (
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-3">
           <MailCheckIcon />
-          <span className="text-emerald-500 font-mono text-sm uppercase tracking-widest">18:00 IST</span>
+          <span className="text-emerald-500 font-mono text-sm uppercase tracking-widest">
+            18:00 IST
+          </span>
         </div>
 
         <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
           Ideathon Results
         </h3>
-        
+
         <div className="space-y-4">
           <div className="flex flex-col gap-1">
-             <span className="text-zinc-200 text-lg font-medium">Announcement of 60 Finalist Teams</span>
-             <span className="text-zinc-500 text-sm">Top teams selected to proceed to the main event.</span>
+            <span className="text-zinc-200 text-lg font-medium">
+              Announcement of 60 Finalist Teams
+            </span>
+            <span className="text-zinc-500 text-sm">
+              Top teams selected to proceed to the main event.
+            </span>
           </div>
           <div className="flex flex-col gap-1">
-             <span className="text-zinc-200 text-lg font-medium">Offline Participation Confirmation</span>
-             <span className="text-zinc-500 text-sm">Selected teams must confirm attendance for Dec 12-13.</span>
+            <span className="text-zinc-200 text-lg font-medium">
+              Offline Participation Confirmation
+            </span>
+            <span className="text-zinc-500 text-sm">
+              Selected teams must confirm attendance for Dec 12-13.
+            </span>
           </div>
         </div>
       </div>
     ),
   },
+
   {
     title: "Dec 12-13",
     content: (
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-3">
           <CodeIcon />
-          <span className="text-purple-500 font-mono text-sm uppercase tracking-widest">The Main Event</span>
+          <span className="text-purple-500 font-mono text-sm uppercase tracking-widest">
+            The Main Event
+          </span>
         </div>
 
         <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
           Grand Finale
         </h3>
-        
+
         <p className="text-zinc-400 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl">
           24 hours of relentless innovation at RIT Campus. Build, break, and deploy.
         </p>
@@ -238,19 +353,27 @@ const timelineData = [
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-zinc-800 pt-8">
           <div>
             <p className="text-3xl font-bold text-white mb-1">₹18k</p>
-            <p className="text-zinc-500 text-sm font-medium uppercase tracking-wider">Winner</p>
+            <p className="text-zinc-500 text-sm font-medium uppercase tracking-wider">
+              Winner
+            </p>
           </div>
           <div>
             <p className="text-3xl font-bold text-zinc-300 mb-1">₹12k</p>
-            <p className="text-zinc-500 text-sm font-medium uppercase tracking-wider">Runner Up</p>
+            <p className="text-zinc-500 text-sm font-medium uppercase tracking-wider">
+              Runner Up
+            </p>
           </div>
           <div>
             <p className="text-3xl font-bold text-zinc-300 mb-1">₹10k</p>
-            <p className="text-zinc-500 text-sm font-medium uppercase tracking-wider">2nd Runner</p>
+            <p className="text-zinc-500 text-sm font-medium uppercase tracking-wider">
+              2nd Runner
+            </p>
           </div>
           <div>
             <p className="text-3xl font-bold text-zinc-300 mb-1">₹5k</p>
-            <p className="text-zinc-500 text-sm font-medium uppercase tracking-wider">Special</p>
+            <p className="text-zinc-500 text-sm font-medium uppercase tracking-wider">
+              Special
+            </p>
           </div>
         </div>
       </div>
@@ -258,9 +381,23 @@ const timelineData = [
   },
 ];
 
+// -----------------------------------------------------------------------------
+// MAIN COMPONENT
+// -----------------------------------------------------------------------------
+
 export default function EventTimeline() {
   return (
     <TimelineWrapper>
+      <BackgroundDecor />
+      <FloatingBlobs />
+
+      <CircuitLines>
+        <svg width="100%" height="100%">
+          <path d="M0 200 L300 200 L300 600 L700 600" stroke="#ffffff" strokeWidth="2" fill="none" />
+          <path d="M100 0 L100 300 L500 300" stroke="#ffffff" strokeWidth="1.5" fill="none" />
+        </svg>
+      </CircuitLines>
+
       <TimelineContainer>
         <Timeline data={timelineData} />
       </TimelineContainer>

@@ -72,10 +72,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           </div>
         ))}
         
-        {/* Neon timeline line */}
+        {/* Neon timeline line - contained within parent */}
         <div
           style={{
-            height: height + "px",
+            height: Math.max(0, height - 100) + "px",
           }}
           className="absolute md:left-8 left-8 top-0 overflow-hidden w-[3px] bg-gradient-to-b from-transparent via-purple-900/30 to-transparent"
         >

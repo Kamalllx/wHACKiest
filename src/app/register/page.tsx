@@ -293,66 +293,90 @@ export default function RegisterPage() {
       <div ref={containerRef} className="register-container">
         <BackgroundElements />
 
-        <div className="success-content">
-          <div className="success-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="80"
-              height="80"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+        <div className="success-wrapper">
+          <div className="success-card">
+            <div className="success-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="80"
+                height="80"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <h1 className="success-title">Registration Successful!</h1>
+            <p className="success-subtitle">Welcome to wHACKiest 2025</p>
+            <p className="success-description">
+              Your team has been registered successfully. Join our WhatsApp group to stay updated with the latest
+              announcements.
+            </p>
+
+            <a
+              href="https://chat.whatsapp.com/EXrJ1AA59IK6P7aNDplr4H"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-button"
             >
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-              <polyline points="22 4 12 14.01 9 11.01" />
-            </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              Join WhatsApp Group
+            </a>
+
+ 
           </div>
-          <h1 className="success-title">Registration Successful!</h1>
-          <p className="success-subtitle">Welcome to wHACKiest 2025</p>
-          <p className="success-description">
-            Your team has been registered successfully. Join our WhatsApp group to stay updated with the latest
-            announcements.
-          </p>
-
-          <a
-            href="https://chat.whatsapp.com/EXrJ1AA59IK6P7aNDplr4H"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="whatsapp-button"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-            </svg>
-            Join WhatsApp Group
-          </a>
-
-          <Link href="/" className="back-home-link">
-            Back to Home
-          </Link>
         </div>
 
         <style jsx>{`
           ${sharedStyles}
           
-          .success-content {
+          .success-wrapper {
             position: relative;
             z-index: 10;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 40px 20px;
+          }
+
+          .success-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 50px 40px;
             text-align: center;
+            max-width: 520px;
+            width: 100%;
+            box-shadow: 
+              0 25px 60px rgba(0, 0, 0, 0.3),
+              0 0 0 1px rgba(139, 35, 50, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            animation: cardSlideIn 0.5s ease-out;
+          }
+
+          @keyframes cardSlideIn {
+            from { 
+              transform: translateY(30px) scale(0.95); 
+              opacity: 0; 
+            }
+            to { 
+              transform: translateY(0) scale(1); 
+              opacity: 1; 
+            }
           }
 
           .success-icon {
             color: #22c55e;
-            margin-bottom: 30px;
-            animation: scaleIn 0.5s ease-out;
+            margin-bottom: 24px;
+            animation: scaleIn 0.5s ease-out 0.2s both;
           }
 
           @keyframes scaleIn {
@@ -362,62 +386,71 @@ export default function RegisterPage() {
 
           .success-title {
             font-family: 'Castledown', Impact, 'Arial Black', sans-serif;
-            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             font-weight: 800;
             color: #8B2332;
-            margin: 0 0 10px;
+            margin: 0 0 8px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
           }
 
           .success-subtitle {
             font-family: 'Castledown', Impact, sans-serif;
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            color: #333;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #555;
             margin: 0 0 20px;
-            text-transform: uppercase;
           }
 
           .success-description {
-            font-size: 1rem;
-            color: #555;
-            max-width: 500px;
-            margin: 0 0 40px;
+            font-size: 0.95rem;
+            color: #666;
+            margin: 0 0 32px;
             line-height: 1.6;
           }
 
           .whatsapp-button {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 18px 36px;
-            background: #25D366;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             color: #fff;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 14px;
+            border-radius: 12px;
             transition: all 0.3s ease;
             margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
           }
 
           .whatsapp-button:hover {
-            background: #128C7E;
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
           }
 
           .back-home-link {
+            display: inline-block;
             color: #8B2332;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: rgba(139, 35, 50, 0.08);
           }
 
           .back-home-link:hover {
+            background: rgba(139, 35, 50, 0.15);
             color: #5a171f;
-            text-decoration: underline;
+          }
+
+          @media (max-width: 500px) {
+            .success-card {
+              padding: 40px 24px;
+              margin: 20px;
+            }
           }
         `}</style>
       </div>
@@ -428,22 +461,6 @@ export default function RegisterPage() {
     <div ref={containerRef} className="register-container">
       <BackgroundElements />
 
-      <Link href="/" className="back-link">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M19 12H5M12 19l-7-7 7-7" />
-        </svg>
-        <span>Back to Home</span>
-      </Link>
 
       <div className="register-content">
         <div className="register-header">
@@ -451,8 +468,9 @@ export default function RegisterPage() {
             <span className="title-main">wHACKiest</span>
             <span className="title-year">&lt;/2025&gt;</span>
           </h1>
-          <h2 className="register-subtitle">REGISTER YOUR TEAM</h2>
-          <p className="register-description">Compete for ₹50,000 prize pool</p>
+<h2 className="register-subtitle highlight-animate text-10xl font-extrabold">
+  REGISTER YOUR TEAM
+</h2>
         </div>
 
         {serverError && (
@@ -695,9 +713,9 @@ export default function RegisterPage() {
         .register-content {
           position: relative;
           z-index: 10;
-          max-width: 1100px;
           margin: 0 auto;
-          padding: 100px 20px 60px;
+          padding: 120px 40px 60px;
+          max-width: 1300px;   /* was 1100px */
         }
 
         .register-header {
@@ -705,38 +723,80 @@ export default function RegisterPage() {
           margin-bottom: 40px;
         }
 
-        .register-title {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 5px;
-          margin: 0 0 15px;
-        }
+/* COMMON HIGHLIGHT ANIMATION BASE */
+.highlight-animate {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 4px 8px;
+  z-index: 1;
+}
 
-        .title-main {
-          font-family: 'Castledown', Impact, 'Arial Black', sans-serif;
-          font-size: clamp(2.5rem, 8vw, 4rem);
-          font-weight: 900;
-          color: #8B2332;
-          text-transform: uppercase;
-          letter-spacing: 3px;
-        }
+.highlight-animate::before {
+  content: "";
+  position: absolute;
+  left: -120%;
+  top: 0;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(90deg, #ffe27a, #ffcf33, #ffb800);
+  transform: skewX(-15deg);
+  z-index: -1;
+  animation: slide-highlight 1.1s ease forwards;
+}
 
-        .title-year {
-          font-family: 'Courier New', monospace;
-          font-size: clamp(1.2rem, 4vw, 1.8rem);
-          color: #333;
-          font-weight: 700;
-        }
+@keyframes slide-highlight {
+  0% { left: -120%; }
+  100% { left: 0%; }
+}
 
-        .register-subtitle {
-          font-family: 'Castledown', Impact, sans-serif;
-          font-size: clamp(1rem, 3vw, 1.3rem);
-          color: #555;
-          margin: 0 0 10px;
-          text-transform: uppercase;
-          letter-spacing: 4px;
-        }
+
+.register-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin: 0 0 15px;
+}
+
+.title-main {
+  font-family: 'Castledown', Impact, 'Arial Black', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 900;
+  color: #8B2332;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: -90px;
+}
+
+.title-main.highlight-animate::before {
+  background: linear-gradient(90deg, #ffd5d5, #ff9c9c, #ff6f6f);
+}
+
+.title-year {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  color: #333;
+  font-weight: 700;
+}
+
+.title-year.highlight-animate::before {
+  background: linear-gradient(90deg, #d4e8ff, #9ecbff, #6fb4ff);
+}
+
+/* SUBTITLE */
+.register-subtitle {
+  font-family: 'Castledown', Impact, sans-serif;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  color: #555;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.register-subtitle.highlight-animate::before {
+  background: linear-gradient(90deg, #ffe27a, #ffcf33, #ffb800);
+}
 
         .register-description {
           font-size: 1rem;
@@ -764,9 +824,11 @@ export default function RegisterPage() {
           background: rgba(255,255,255,0.95);
           backdrop-filter: blur(20px);
           border-radius: 24px;
-          padding: 40px;
+          padding: 55px 60px;
           border: 1px solid rgba(139, 35, 50, 0.1);
           box-shadow: 0 25px 80px rgba(139, 35, 50, 0.08);
+          max-width: 100%;    /* wider form card */
+          margin: 0 auto;  
         }
 
         /* Team name spans full width */
@@ -775,13 +837,17 @@ export default function RegisterPage() {
           max-width: 400px;
         }
 
-        /* Horizontal grid layout for desktop */
-        .teammates-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 24px;
-          margin-bottom: 30px;
-        }
+.teammates-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
+
+  max-width: 90%;         /* prevents full stretch and centers */
+  margin-left: auto;      /* centers horizontally */
+  margin-right: auto;
+}
+
 
         @media (max-width: 1024px) {
           .teammates-grid {
@@ -799,16 +865,28 @@ export default function RegisterPage() {
         }
 
         .form-section {
-          padding: 20px;
+          position: relative;
+          width: 100%;
+          padding: 28px;
           background: rgba(139, 35, 50, 0.02);
-          border-radius: 16px;
+          border-radius: 18px;
           border: 1px solid rgba(139, 35, 50, 0.06);
           transition: all 0.3s ease;
         }
+        .form-section:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(139, 35, 50, 0.08); /* soft line */
+  transform: scaleY(0.6);
+}
 
         .form-section:hover {
           border-color: rgba(139, 35, 50, 0.15);
-          background: rgba(139, 35, 50, 0.04);
+          background: rgba(139, 35, 50, 0.06);
         }
 
         .form-section.optional {

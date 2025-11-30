@@ -34,13 +34,13 @@ const Testimonials: React.FC = () => {
       <StyledContentWrapper>
         <HeadingContainer>
           <StyledHeading1>
-            Create
+            Our
             <StyledUnforgettableCutout
               alt="Unforgettable Cutout"
               src={UnforgettableCutout}
               loading="lazy"
             />
-            memories
+            Sponsors
           </StyledHeading1>
         </HeadingContainer>
         <SummaryTextContainer>

@@ -17,6 +17,13 @@ import { theme } from "@/styles";
 import { mediaQueries, useDeviceSize } from "@/utils";
 import styled, { keyframes } from "styled-components";
 
+// Mobile-hidden wrapper
+const MobileHiddenWrapper = styled.div`
+  ${mediaQueries.tablet} {
+    display: none;
+  }
+`;
+
 const About: React.FC = () => {
   const isTabletOrSmaller = useDeviceSize("tablet");
   const responsiveRootMargin = isTabletOrSmaller
@@ -36,59 +43,60 @@ const About: React.FC = () => {
   });
 
   return (
-    <SectionWrapper id={SectionId.ABOUT}>
-      <CloudImg1 src={Cloud1} alt="misty transparent cloud" loading="lazy" />
-      <CloudImg2 src={Cloud2} alt="misty transparent cloud" loading="lazy" />
-      <CloudImg3 src={Cloud1} alt="misty transparent cloud" loading="lazy" />
-      <CloudImg4 src={Cloud2} alt="misty transparent cloud" loading="lazy" />
-      <CloudImg5 src={Cloud4} alt="misty transparent cloud" loading="lazy" />
-      <StyledContentWrapper>
-        <Wrapper>
-          <WelcomeWrapper ref={welcomeDivRef}>
-            <Heading2>Welcome to wHACKiest 2025</Heading2>
-            <StyledBody>
-              Join RIT&apos;s biggest hackathon! A two-phase event by CodeRIT and the CSE Department.
-              <br />
-              <br />
-              <strong>Phase 1: Ideathon</strong> - Pitch your ideas online (Dec 1-10)
-              <br />
-              <strong>Phase 2: Hackathon</strong> - Top 60 teams compete for 24 hours on campus (Dec 12-13)
-              <br />
-              <br />
-              Rs 50,000 in prizes. Zero registration fee.
-            </StyledBody>
-          </WelcomeWrapper>
-          <Road alt="Road" src={RoadImg} />
-          <AboutPictures
-            alt="AboutPictures"
-            src={AboutPicturesImg}
-            loading="lazy"
-            ref={pictureDivRef}
+    <MobileHiddenWrapper>
+      <SectionWrapper id={SectionId.ABOUT}>
+        <CloudImg1 src={Cloud1} alt="misty transparent cloud" loading="lazy" />
+        <CloudImg2 src={Cloud2} alt="misty transparent cloud" loading="lazy" />
+        <CloudImg3 src={Cloud1} alt="misty transparent cloud" loading="lazy" />
+        <CloudImg4 src={Cloud2} alt="misty transparent cloud" loading="lazy" />
+        <CloudImg5 src={Cloud4} alt="misty transparent cloud" loading="lazy" />
+        <StyledContentWrapper>
+          <Wrapper>
+            <WelcomeWrapper ref={welcomeDivRef}>
+              <Heading2>Welcome to wHACKiest 2025</Heading2>
+              <StyledBody>
+                Join RIT&apos;s biggest hackathon! A two-phase event by CodeRIT and the CSE Department.
+                <br />
+                <br />
+                <strong>Phase 1: Ideathon</strong> - Pitch your ideas online (Dec 1-10)
+                <br />
+                <strong>Phase 2: Hackathon</strong> - Top 60 teams compete for 24 hours on campus (Dec 12-13)
+                <br />
+                <br />
+                Rs 50,000 in prizes. Zero registration fee.
+              </StyledBody>
+            </WelcomeWrapper>
+            <Road alt="Road" src={RoadImg} />
+            <AboutPictures
+              alt="AboutPictures"
+              src={AboutPicturesImg}
+              loading="lazy"
+              ref={pictureDivRef}
+            />
+            <BelongWrapper ref={belongDivRef}>
+              <Heading2>Everyone belongs here</Heading2>
+              <StyledBody>
+                First-year or final-year, coder or designer - there&apos;s a place for you.
+                <br />
+                Teams of 2-4 from any branch. Special prizes for Best Freshers (Rs 5,000) and Best Female Team (Rs 5,000).
+              </StyledBody>
+            </BelongWrapper>
+          </Wrapper>
+
+          <Car1 alt="Car" src={CarImg} $inView={welcomeDivInView} />
+          <Car2 alt="Car" src={CarImg} $inView={PictureDivInView} />
+          <Car3
+            alt="Car"
+            src={CarImg}
+            $inView={belongDivInView}
+            $pictureInView={PictureDivInView}
+            $welcomeInView={welcomeDivInView}
           />
-          <BelongWrapper ref={belongDivRef}>
-            <Heading2>Everyone belongs here</Heading2>
-            <StyledBody>
-              First-year or final-year, coder or designer - there&apos;s a place for you.
-              <br />
-              <br />
-              Teams of 2-4 from any branch. Special prizes for Best Freshers (Rs 5,000) and Best Female Team (Rs 5,000).
-            </StyledBody>
-          </BelongWrapper>
-        </Wrapper>
 
-        <Car1 alt="Car" src={CarImg} $inView={welcomeDivInView} />
-        <Car2 alt="Car" src={CarImg} $inView={PictureDivInView} />
-        <Car3
-          alt="Car"
-          src={CarImg}
-          $inView={belongDivInView}
-          $pictureInView={PictureDivInView}
-          $welcomeInView={welcomeDivInView}
-        />
-
-        <Bubble alt="Bubble" src={BubbleImg} loading="lazy" />
-      </StyledContentWrapper>
-    </SectionWrapper>
+          <Bubble alt="Bubble" src={BubbleImg} loading="lazy" />
+        </StyledContentWrapper>
+      </SectionWrapper>
+    </MobileHiddenWrapper>
   );
 };
 

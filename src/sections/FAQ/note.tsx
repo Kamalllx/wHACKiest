@@ -31,9 +31,8 @@ const Wrapper = styled.div`
     padding-top: 8%;
   }
 `;
-
 const NoteText = styled(Body)`
-  color: ${({ theme }) => theme.colors.secondary.navy};
+  color: #000000; /* Black text */
   position: relative;
   padding: 7%;
   padding-right: 10%;
@@ -68,23 +67,19 @@ const Note: React.FC = () => {
       <Left>
         <CloudLeft alt="left cloud graphic" loading="lazy" src={CloudLeftImg} />
         <TextWrapper>
-          <NoteText>
-            Hey Hackers! <br />
-            <br />
-            For the last 10 years, wHACKiest has strived to create a space
-            for students to build, connect, and learn. For our 11th iteration,
-            we want to give hackers the opportunity to{" "}
-            <strong>dream big</strong> and{" "}
-            <strong>build whatever you can imagine!</strong> We’ll provide you
-            with the best resources, activities, and learning opportunities, so
-            you can focus on exploring and creating something{" "}
-            <strong>amazing!</strong> Though we can’t give away too much yet, we
-            can’t wait for you to see all the amazing activities, workshops, and
-            speakers we have planned. We’re so excited to see all the amazing
-            things you’ll create!
-            <br />
-            <br />— Team wHACKiest 💙
-          </NoteText>
+<NoteText>
+  Hey Hackers! <br /><br />
+  Welcome to this year’s hackathon a space built for creators, thinkers,
+  and problem-solvers. Over the next 24 hours, we want you to explore ideas,
+  experiment freely, and work on projects that truly excite you. <br />
+  Whether you're here to build something impactful, learn a new technology,
+  or collaborate with amazing people, we’re here to support you with
+  resources, mentors, and a vibrant community. <br />
+  There are no limits — just bring your creativity, curiosity, and energy.
+  We can’t wait to see what you create! <br /><br />
+  ~ Team  CodeRIT💙
+</NoteText>
+
         </TextWrapper>
       </Left>
 
@@ -176,29 +171,7 @@ const Right = styled.div`
   }
 
   ${mediaQueries.tablet} {
-    top: -15%;
-    left: -30%;
-  }
-
-  ${mediaQueries.mediumTablet} {
-    left: -60%;
-  }
-
-  ${mediaQueries.smallTablet} {
-    left: -70%;
-  }
-
-  ${mediaQueries.largeMobile} {
-    width: 927px;
-    top: -5%;
-    left: -45%;
-  }
-
-  ${mediaQueries.mobile} {
-    left: -64%;
-  }
-  ${mediaQueries.smallMobile} {
-    left: -74%;
+    display: none; /* Hide DidWeMissAnything on tablet and below */
   }
 `;
 const CloudRight = styled.img`

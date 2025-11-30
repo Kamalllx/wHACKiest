@@ -155,7 +155,7 @@ const TalkingPoints: React.FC = () => {
           <TextSectionWrapper>
             <TalkingPointsTextWrapper>
               <TalkingPointsParagraphWrapper $inView={createDivInView}>
-                <StyledHeading2>Join RIT&apos;s Hacker Community</StyledHeading2>
+                <StyledHeading2>Join CodeRIT's Community</StyledHeading2>
                 <StyledLargeBodyMedium ref={joinDivRef}>
                   Connect with innovative minds from Ramaiah Institute of Technology.
                   Team up with fellow students, get mentorship from industry experts,
@@ -170,7 +170,7 @@ const TalkingPoints: React.FC = () => {
                 <StyledLargeBodyMedium ref={createDivRef}>
                   Two phases, one mission: bring your ideas to life! Ideathon lets you
                   pitch and refine concepts. The 24-hour Hackathon gives you the stage
-                  to build, code, and create. We provide the tools, mentorship, and support—
+                  to build, code, and create. We provide the tools, mentorship, and support 
                   you bring the innovation.
                 </StyledLargeBodyMedium>
               </TalkingPointsParagraphWrapper>

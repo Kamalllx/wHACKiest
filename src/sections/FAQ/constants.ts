@@ -9,12 +9,12 @@ export const LEFT_QUESTION_SET: QuestionAnswer[] = [
   {
     question: "Who can participate?",
     answer:
-      "wHACKiest is open to all college students! Whether you're a first-year fresher or a final-year student, you're welcome to participate. We encourage students from all branches to join and showcase their innovative ideas.",
+      "wHACKiest is open to all 1st ,2nd and 3rd college students! Whether you're a first-year fresher or a pre-final year student, you're welcome to participate. We encourage students from all branches to join and showcase their innovative ideas.",
   },
   {
     question: "What if I've never been to a hackathon before?",
     answer:
-      "No worries! wHACKiest welcomes students of all skill levels. We'll have mentors, workshops, and resources to help you along the way. Many first-time hackers have gone on to win prizes at hackathons. Just bring your enthusiasm and willingness to learn!",
+      "No worries! wHACKiest welcomes students of all skill levels. We'll have mentors, and resources to help you along the way. Many first-time hackers have gone on to win prizes at hackathons. Just bring your enthusiasm and willingness to learn!",
   },
   {
     question: "How many people can be on a team?",
