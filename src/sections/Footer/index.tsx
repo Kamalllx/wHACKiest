@@ -29,6 +29,7 @@ const Footer: React.FC = () => {
         }
       }}
       id={SectionId.FOOTER}
+      
     >
       <ContentWrapper>
         <HeadingContainer>

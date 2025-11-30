@@ -3,6 +3,7 @@
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import styled from "styled-components";
+import { SectionId } from "@/constants";
 
 // -----------------------------------------------------------------------------
 // BACKGROUND ELEMENTS (Grid + Neon Blobs + Circuit Lines)
@@ -387,7 +388,7 @@ const timelineData = [
 
 export default function EventTimeline() {
   return (
-    <TimelineWrapper>
+    <TimelineWrapper id={SectionId.TIMELINE}>
       <BackgroundDecor />
       <FloatingBlobs />
 

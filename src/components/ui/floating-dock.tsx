@@ -16,14 +16,14 @@ export const FloatingDock = ({
   desktopClassName,
   mobileClassName,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: { title: string; icon: React.ReactNode; href: string; hideOnMobile?: boolean }[];
   desktopClassName?: string;
   mobileClassName?: string;
 }) => {
   return (
     <>
       <FloatingDockDesktop items={items} className={desktopClassName} />
-      <FloatingDockMobile items={items} className={mobileClassName} />
+      <FloatingDockMobile items={items.filter(item => !item.hideOnMobile)} className={mobileClassName} />
     </>
   );
 };

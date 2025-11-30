@@ -291,6 +291,8 @@ export default function RegisterPage() {
   if (isSuccess) {
     return (
       <div ref={containerRef} className="register-container">
+
+
         <BackgroundElements />
 
         <div className="success-wrapper">
@@ -329,14 +331,13 @@ export default function RegisterPage() {
               </svg>
               Join WhatsApp Group
             </a>
-
- 
           </div>
         </div>
 
         <style jsx>{`
           ${sharedStyles}
-          
+
+
           .success-wrapper {
             position: relative;
             z-index: 10;
@@ -429,27 +430,16 @@ export default function RegisterPage() {
             box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
           }
 
-          .back-home-link {
-            display: inline-block;
-            color: #8B2332;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            background: rgba(139, 35, 50, 0.08);
-          }
-
-          .back-home-link:hover {
-            background: rgba(139, 35, 50, 0.15);
-            color: #5a171f;
-          }
-
           @media (max-width: 500px) {
             .success-card {
               padding: 40px 24px;
               margin: 20px;
+            }
+            .back-to-home-btn {
+              top: 12px;
+              left: 12px;
+              padding: 10px 16px;
+              font-size: 0.85rem;
             }
           }
         `}</style>
@@ -459,8 +449,8 @@ export default function RegisterPage() {
 
   return (
     <div ref={containerRef} className="register-container">
-      <BackgroundElements />
 
+      <BackgroundElements />
 
       <div className="register-content">
         <div className="register-header">
@@ -468,9 +458,7 @@ export default function RegisterPage() {
             <span className="title-main">wHACKiest</span>
             <span className="title-year">&lt;/2025&gt;</span>
           </h1>
-<h2 className="register-subtitle highlight-animate text-10xl font-extrabold">
-  REGISTER YOUR TEAM
-</h2>
+          <h2 className="register-subtitle highlight-animate text-10xl font-extrabold">REGISTER YOUR TEAM</h2>
         </div>
 
         {serverError && (
@@ -684,30 +672,37 @@ export default function RegisterPage() {
       <style jsx>{`
         ${sharedStyles}
 
-        .back-link {
+        .back-to-home-btn {
           position: fixed;
-          top: 20px;
-          left: 20px;
+          top: 30px;
+          left: 30px;
+          z-index: 99999;
           display: flex;
           align-items: center;
-          gap: 8px;
-          color: #8B2332;
-          text-decoration: none;
-          font-weight: 600;
-          font-size: 0.95rem;
-          z-index: 100;
-          padding: 10px 16px;
-          background: rgba(255,255,255,0.9);
+          gap: 10px;
+          padding: 14px 24px;
+          background: rgba(139, 35, 50, 0.95);
           backdrop-filter: blur(10px);
-          border-radius: 10px;
-          border: 1px solid rgba(139, 35, 50, 0.1);
+          border-radius: 12px;
+          color: white;
+          font-weight: 700;
+          font-size: 0.95rem;
+          text-decoration: none;
+          border: 2px solid rgba(139, 35, 50, 1);
+          box-shadow: 0 6px 25px rgba(139, 35, 50, 0.3);
           transition: all 0.3s ease;
+          cursor: pointer;
+          will-change: transform;
         }
 
-        .back-link:hover {
+        .back-to-home-btn:hover {
+          transform: translateX(-8px);
           background: #8B2332;
-          color: #fff;
-          transform: translateX(-5px);
+          box-shadow: 0 8px 30px rgba(139, 35, 50, 0.4);
+        }
+
+        .back-to-home-btn:active {
+          transform: translateX(-4px) scale(0.98);
         }
 
         .register-content {

@@ -3,11 +3,12 @@
 import React from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
-  IconHome,
-  IconInfoCircle,
   IconTrophy,
-  IconQuestionMark,
+  IconCalendarEvent,
   IconCode,
+  IconInfoCircle,
+  IconChartBar,
+  IconHeart,
   IconBrandInstagram,
   IconBrandLinkedin,
   IconMail,
@@ -18,66 +19,54 @@ import { SectionId } from "@/constants";
 const FloatingNavbar: React.FC = () => {
   const links = [
     {
-      title: "Home",
-      icon: (
-        <IconHome className="h-full w-full text-neutral-300" />
-      ),
-      href: `#${SectionId.HERO}`,
+      title: "Prizes",
+      icon: <IconTrophy className="h-full w-full text-neutral-300" />,
+      href: `#${SectionId.PRIZES}`,
+    },
+    {
+      title: "Timeline",
+      icon: <IconCalendarEvent className="h-full w-full text-neutral-300" />,
+      href: `#${SectionId.TIMELINE}`,
+    },
+    {
+      title: "PS",
+      icon: <IconCode className="h-full w-full text-neutral-300" />,
+      href: `#${SectionId.PROBLEM_STATEMENTS}`,
     },
     {
       title: "About",
-      icon: (
-        <IconInfoCircle className="h-full w-full text-neutral-300" />
-      ),
+      icon: <IconInfoCircle className="h-full w-full text-neutral-300" />,
       href: `#${SectionId.ABOUT}`,
+      hideOnMobile: true,
     },
     {
-      title: "Prizes",
-      icon: (
-        <IconTrophy className="h-full w-full text-neutral-300" />
-      ),
-      href: "#prizes",
+      title: "Stats",
+      icon: <IconChartBar className="h-full w-full text-neutral-300" />,
+      href: `#${SectionId.STATS}`,
     },
     {
-      title: "Problem Statements",
-      icon: (
-        <IconCode className="h-full w-full text-neutral-300" />
-      ),
-      href: "#problem-statements",
-    },
-    {
-      title: "FAQ",
-      icon: (
-        <IconQuestionMark className="h-full w-full text-neutral-300" />
-      ),
-      href: `#${SectionId.FAQ}`,
+      title: "Sponsors",
+      icon: <IconHeart className="h-full w-full text-neutral-300" />,
+      href: `#${SectionId.TESTIMONIALS}`,
     },
     {
       title: "Register",
-      icon: (
-        <IconUserPlus className="h-full w-full text-red-400" />
-      ),
+      icon: <IconUserPlus className="h-full w-full text-green-400" />,
       href: "/register",
     },
     {
       title: "Instagram",
-      icon: (
-        <IconBrandInstagram className="h-full w-full text-neutral-300" />
-      ),
+      icon: <IconBrandInstagram className="h-full w-full text-neutral-300" />,
       href: "https://instagram.com/code_rit",
     },
     {
       title: "LinkedIn",
-      icon: (
-        <IconBrandLinkedin className="h-full w-full text-neutral-300" />
-      ),
+      icon: <IconBrandLinkedin className="h-full w-full text-neutral-300" />,
       href: "https://www.linkedin.com/company/coderitclub",
     },
     {
       title: "Contact",
-      icon: (
-        <IconMail className="h-full w-full text-neutral-300" />
-      ),
+      icon: <IconMail className="h-full w-full text-neutral-300" />,
       href: "mailto:coderit@ritchennai.edu.in",
     },
   ];

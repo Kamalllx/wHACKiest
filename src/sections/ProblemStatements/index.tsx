@@ -54,6 +54,8 @@ const ArrowIcon = () => (
   </svg>
 )
 
+import { SectionId } from "@/constants"
+
 const ProblemStatements: React.FC = () => {
   const [activeTab, setActiveTab] = useState("track1")
 
@@ -131,7 +133,7 @@ const ProblemStatements: React.FC = () => {
   ]
 
   return (
-    <SectionWrapper>
+    <SectionWrapper id={SectionId.PROBLEM_STATEMENTS}>
       <ContentContainer>
         <HeadingContainer>
           <MainHeading>Problem Statements</MainHeading>

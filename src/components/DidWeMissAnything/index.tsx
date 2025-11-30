@@ -105,7 +105,7 @@ const DidWeMissAnything: React.FC<DidWeMissAnythingProps> = ({
           </StyledLink>
         ) : (
           <StyledLink
-            href="mailto:hello@coderit.org"
+            href="mailto:coderit@msrit.edu"
             onClick={
               () => Fathom.trackEvent("Sign Up: Clicked Email Contact") // Sign Up: Clicked Email Contact
             }
