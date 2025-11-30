@@ -48,12 +48,17 @@ const TestimonialCarousel: React.FC = () => {
         ))}
       </BlocksContainer>
       <ContentContainer>
-        <StyledTitle>
+        <TitleContainer>
+          <LogoImg
+            src={hackerTestimonialsData[activeIndex].logo}
+            alt={`${hackerTestimonialsData[activeIndex].name} logo`}
+          />
+          <Dash>-</Dash>
           <Heading2>{hackerTestimonialsData[activeIndex].name}</Heading2>
-          <LargeBodyMediumStyled>
-            {hackerTestimonialsData[activeIndex].tagline}
-          </LargeBodyMediumStyled>
-        </StyledTitle>
+        </TitleContainer>
+        <LargeBodyMediumStyled>
+          {hackerTestimonialsData[activeIndex].tagline}
+        </LargeBodyMediumStyled>
         <QuoteContainer>
           <QuoteImg $align="start" src={OpenQuote} alt="Open Quote" />
           <StyledBody>
@@ -198,14 +203,6 @@ const ImageBlock = styled.img<{
   }
 `;
 
-const StyledTitle = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-`;
-
 const StyledBody = styled(Body)`
   color: ${({ theme }) => theme.colors.secondary.navy};
   line-height: 24px;
@@ -213,6 +210,38 @@ const StyledBody = styled(Body)`
 
   ${mediaQueries.largeMobile} {
     line-height: 25.6px;
+  }
+`;
+
+const LogoImg = styled.img`
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+
+  ${mediaQueries.largeMobile} {
+    width: 100px;
+  }
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  ${mediaQueries.largeMobile} {
+    gap: 8px;
+  }
+`;
+
+const Dash = styled.span`
+  font-size: 24px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.secondary.navy};
+
+  ${mediaQueries.largeMobile} {
+    font-size: 20px;
   }
 `;
 

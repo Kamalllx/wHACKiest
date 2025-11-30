@@ -9,6 +9,7 @@ export type HackerTestimonialsData = {
   tagline: string;
   description: string;
   image: string;
+  logo: string;
 };
 
 const hackerTestimonialsData: HackerTestimonialsData[] = [
@@ -19,6 +20,7 @@ const hackerTestimonialsData: HackerTestimonialsData[] = [
     description:
       "Aspire Finance is an RBI-registered NBFC committed to boosting financial inclusion for MSMEs in India by providing accessible, fully digital working capital loans with zero paperwork.",
     image: boyAvatar,
+    logo: "/images/testimonials/hackers/Aspire-finance.png",
   },
   {
     id: 1,
@@ -27,6 +29,7 @@ const hackerTestimonialsData: HackerTestimonialsData[] = [
     description:
       "Hampi Labs is a forward-thinking company dedicated to solving real-world challenges in tourism and hospitality. We blend technology, research, and on-ground insights to create smarter, more efficient travel experiences for everyone.",
     image: girlAvatar2,
+    logo: "/images/testimonials/hackers/Hampi-labs.png",
   },
 
 ];

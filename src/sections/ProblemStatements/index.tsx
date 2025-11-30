@@ -116,20 +116,20 @@ const ProblemStatements: React.FC = () => {
         </TabContent>
       ),
     },
-    {
-      title: "Open Innovation",
-      value: "open",
-      content: (
-        <TabContent>
-          <TrackTitle>To Be Announced</TrackTitle>
-          <TrackDescription>
-            Problem statements will be revealed on December 4th, 2025 at 2:00 PM during the Grand Inauguration at ESB
-            Seminar Hall 1.
-          </TrackDescription>
-          <CountdownBadge>Coming Soon</CountdownBadge>
-        </TabContent>
-      ),
-    },
+    // {
+    //   title: "Open Innovation",
+    //   value: "open",
+    //   content: (
+    //     <TabContent>
+    //       <TrackTitle>To Be Announced</TrackTitle>
+    //       <TrackDescription>
+    //         Problem statements will be revealed on December 4th, 2025 at 2:00 PM during the Grand Inauguration at ESB
+    //         Seminar Hall 1.
+    //       </TrackDescription>
+    //       <CountdownBadge>Coming Soon</CountdownBadge>
+    //     </TabContent>
+    //   ),
+    // },
   ]
 
   return (

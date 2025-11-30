@@ -51,8 +51,10 @@ export const RIGHT_QUESTION_SET: QuestionAnswer[] = [
   },
   {
     question: "What kind of projects can I build?",
+    // answer:
+    //   "You can build projects related to the problem statements from our sponsors, or choose the Open Innovation track to build anything you want! Projects can be web apps, mobile apps, AI/ML solutions, IoT devices, or any tech-based solution.",
     answer:
-      "You can build projects related to the problem statements from our sponsors, or choose the Open Innovation track to build anything you want! Projects can be web apps, mobile apps, AI/ML solutions, IoT devices, or any tech-based solution.",
+      "You can build projects related to the problem statements from our sponsors. Projects can be web apps, mobile apps, AI/ML solutions, IoT devices, or any tech-based solution.",
   },
   {
     question: "Will food be provided during the hackathon?",
