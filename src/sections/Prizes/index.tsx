@@ -137,18 +137,20 @@ const SectionHeading = styled.h2`
   z-index: 30;
   width: 100%;
   text-align: center;
-  font-size: 3rem;
-  font-weight: 800;
+  font-family: 'Castledown', Impact, 'Arial Black', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 900;
   color: white;
-
-  /* subtle glowing title */
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4),
-               0 0 30px rgba(139, 92, 246, 0.3);
-
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.5),
+               0 0 30px rgba(139, 92, 246, 0.4),
+               3px 3px 0 rgba(139, 92, 246, 0.25);
   margin-bottom: 40px;
 
-  @media (max-width: 700px) {
-    font-size: 2rem;
+  ${mediaQueries.medium} {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
     margin-bottom: 20px;
   }
 `;

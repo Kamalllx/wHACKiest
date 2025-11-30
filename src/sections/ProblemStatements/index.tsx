@@ -2,6 +2,7 @@
 
 import React from "react";
 import styled from "styled-components";
+import NextLink from "next/link";
 import { ContentWrapper, SectionWrapper } from "@/components/base";
 import { Heading1, Heading2, LargeBodyMedium, theme } from "@/styles";
 import { mediaQueries } from "@/utils/responsive";
@@ -21,6 +22,12 @@ const LockIconSvg = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
     <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+  </svg>
+);
+
+const ArrowIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
   </svg>
 );
 
@@ -118,6 +125,13 @@ const ProblemStatements: React.FC = () => {
             </BannerVenue>
           </BannerText>
         </AnnouncementBanner>
+
+        <RegisterButtonContainer>
+          <RegisterButton href="/register">
+            Register Now
+            <ArrowIcon />
+          </RegisterButton>
+        </RegisterButtonContainer>
 
         <TabsContainer>
           <Tabs
@@ -272,6 +286,66 @@ const CountdownBadge = styled.div`
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
+`;
+
+const RegisterButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+`;
+
+const RegisterButton = styled(NextLink)`
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #b91c1c 100%);
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  &:hover {
+    background-position: 100% 50%;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(220, 38, 38, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  ${mediaQueries.medium} {
+    padding: 16px 32px;
+    font-size: 1rem;
+  }
 `;
 
 export default ProblemStatements;

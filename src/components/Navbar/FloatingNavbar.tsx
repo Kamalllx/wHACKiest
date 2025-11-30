@@ -11,6 +11,7 @@ import {
   IconBrandInstagram,
   IconBrandLinkedin,
   IconMail,
+  IconUserPlus,
 } from "@tabler/icons-react";
 import { SectionId } from "@/constants";
 
@@ -50,6 +51,13 @@ const FloatingNavbar: React.FC = () => {
         <IconQuestionMark className="h-full w-full text-neutral-300" />
       ),
       href: `#${SectionId.FAQ}`,
+    },
+    {
+      title: "Register",
+      icon: (
+        <IconUserPlus className="h-full w-full text-red-400" />
+      ),
+      href: "/register",
     },
     {
       title: "Instagram",

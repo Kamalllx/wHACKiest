@@ -44,27 +44,39 @@ export const theme: DefaultTheme = {
 
 export const Heading1 = styled.h1`
   margin: 0px;
-  font-family: "Castledown";
-  font-size: 48px;
+  font-family: "Castledown", Impact, 'Arial Black', sans-serif;
+  font-size: 56px;
   font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 15px rgba(139, 92, 246, 0.3),
+               2px 2px 0 rgba(139, 92, 246, 0.15);
 
   ${mediaQueries.tablet} {
-    font-size: 36px;
+    font-size: 42px;
+    letter-spacing: 2px;
   }
 
   ${mediaQueries.largeMobile} {
-    font-size: 24px;
+    font-size: 28px;
+    letter-spacing: 1px;
   }
 `;
 
 export const Heading2 = styled.h2`
   margin: 0px;
-  font-family: "Castledown";
-  font-size: 36px;
+  font-family: "Castledown", Impact, sans-serif;
+  font-size: 42px;
   font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px 0 rgba(139, 92, 246, 0.15);
 
   ${mediaQueries.largeMobile} {
     font-size: 24px;
+    letter-spacing: 1px;
   }
 `;
 
