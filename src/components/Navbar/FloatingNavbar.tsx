@@ -67,7 +67,7 @@ const FloatingNavbar: React.FC = () => {
     {
       title: "Contact",
       icon: <IconMail className="h-full w-full text-neutral-300" />,
-      href: "mailto:coderit@ritchennai.edu.in",
+      href: "mailto:coderit@msrit.edu",
     },
   ];
 

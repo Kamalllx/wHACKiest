@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { ParticleTextEffect } from "@/components/ui/particle-text-effect";
 import { mediaQueries } from "@/utils/responsive";
@@ -92,9 +92,16 @@ const PRIZE_WORDS = [
   "Rs 50,000"
 ];
 
-const PRIZE_FONT_SIZES = [
+// Desktop font sizes
+const PRIZE_FONT_SIZES_DESKTOP = [
   140, 120, 90, 110, 90, 110,
   100, 130, 110, 120, 120, 120, 120, 120
+];
+
+// Mobile font sizes (scaled down)
+const PRIZE_FONT_SIZES_MOBILE = [
+  60, 50, 40, 48, 40, 48,
+  44, 56, 48, 52, 52, 52, 52, 52
 ];
 
 const PRIZE_FRAME_DELAYS = [
@@ -128,6 +135,18 @@ declare global {
 
 const Prizes = () => {
   const vantaRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     let effect: any = null;
@@ -181,7 +200,7 @@ const Prizes = () => {
         <ParticleCanvasWrapper>
           <ParticleTextEffect
             words={PRIZE_WORDS}
-            fontSizes={PRIZE_FONT_SIZES}
+            fontSizes={isMobile ? PRIZE_FONT_SIZES_MOBILE : PRIZE_FONT_SIZES_DESKTOP}
             frameDelays={PRIZE_FRAME_DELAYS}
             colors={PRIZE_COLORS}
             transparent={true}
@@ -211,6 +230,10 @@ const SectionContainer = styled.section`
   background: #0d0c1c;
   overflow: hidden;
   padding-top: 0;
+  
+  ${mediaQueries.medium} {
+    min-height: 80vh;
+  }
 `;
 
 /* Heading is on TOP of particles */
@@ -230,9 +253,12 @@ const SectionHeading = styled.h2`
     0 0 30px rgba(139, 92, 246, 0.4),
     3px 3px 0 rgba(139, 92, 246, 0.25);
   margin-bottom: 40px;
+  padding: 0 20px;
 
   ${mediaQueries.medium} {
-    font-size: 2.8rem;
+    font-size: 2rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -245,16 +271,19 @@ const ParticleOverlay = styled.div`
 
 const ParticleCanvasWrapper = styled.div`
   position: absolute;
-  inset: 0;            /* FULL WIDTH + FULL HEIGHT */
+  inset: 0;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 10px;
+  box-sizing: border-box;
 
   .particle-canvas {
     width: 100% !important;
     height: 100% !important;
+    max-width: 100%;
   }
 `;
 

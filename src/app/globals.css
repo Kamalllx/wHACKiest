@@ -212,6 +212,24 @@ body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  will-change: transform;
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  .hero-canvas {
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .hero-container {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .scroll-sections {
+    will-change: transform;
+  }
 }
 
 .hero-content {
@@ -331,6 +349,48 @@ body {
 
 .content-section .subtitle-line {
   font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+}
+
+/* Hero Register Button */
+.hero-register-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4), 0 0 40px rgba(16, 185, 129, 0.2);
+  transition: all 0.3s ease;
+  z-index: 10;
+  position: relative;
+}
+
+.hero-register-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5), 0 0 60px rgba(16, 185, 129, 0.3);
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+}
+
+.hero-register-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.hero-register-btn:hover svg {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .hero-register-btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+    margin-top: 24px;
+  }
 }
 
 /* wHACKiest Finale Section Styles */

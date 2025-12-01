@@ -709,8 +709,24 @@ export default function RegisterPage() {
           position: relative;
           z-index: 10;
           margin: 0 auto;
-          padding: 120px 40px 60px;
-          max-width: 1300px;   /* was 1100px */
+          padding: 100px 24px 60px;
+          max-width: 1200px;
+          width: 100%;
+          box-sizing: border-box;
+        }
+
+        @media (max-width: 1440px) {
+          .register-content {
+            padding: 90px 20px 50px;
+            max-width: 1100px;
+          }
+        }
+
+        @media (max-width: 1280px) {
+          .register-content {
+            padding: 80px 16px 40px;
+            max-width: 100%;
+          }
         }
 
         .register-header {
@@ -819,11 +835,25 @@ export default function RegisterPage() {
           background: rgba(255,255,255,0.95);
           backdrop-filter: blur(20px);
           border-radius: 24px;
-          padding: 55px 60px;
+          padding: 40px 32px;
           border: 1px solid rgba(139, 35, 50, 0.1);
           box-shadow: 0 25px 80px rgba(139, 35, 50, 0.08);
-          max-width: 100%;    /* wider form card */
-          margin: 0 auto;  
+          max-width: 100%;
+          margin: 0 auto;
+          box-sizing: border-box;
+          overflow: hidden;
+        }
+
+        @media (min-width: 1024px) {
+          .register-form {
+            padding: 48px 40px;
+          }
+        }
+
+        @media (min-width: 1440px) {
+          .register-form {
+            padding: 55px 50px;
+          }
         }
 
         /* Team name spans full width */
@@ -835,12 +865,18 @@ export default function RegisterPage() {
 .teammates-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+  gap: 20px;
   margin-bottom: 40px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-  max-width: 90%;         /* prevents full stretch and centers */
-  margin-left: auto;      /* centers horizontally */
-  margin-right: auto;
+@media (max-width: 1280px) {
+  .teammates-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
 }
 
 

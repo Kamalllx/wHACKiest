@@ -62,10 +62,14 @@ export const Component = () => {
     locations: []
   });
 
+  // Detect mobile for performance optimization
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
   // Initialize Three.js
   useEffect(() => {
     const initThree = () => {
       const { current: refs } = threeRefs;
+      const mobile = window.innerWidth <= 768;
       
       // Scene setup
       refs.scene = new THREE.Scene();
@@ -81,27 +85,28 @@ export const Component = () => {
       refs.camera.position.z = 100;
       refs.camera.position.y = 20;
 
-      // Renderer
+      // Renderer - lower pixel ratio on mobile for better performance
       refs.renderer = new THREE.WebGLRenderer({
         canvas: canvasRef.current,
-        antialias: true,
-        alpha: true
+        antialias: !mobile, // Disable antialiasing on mobile
+        alpha: true,
+        powerPreference: mobile ? 'low-power' : 'high-performance'
       });
       refs.renderer.setSize(window.innerWidth, window.innerHeight);
-      refs.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      refs.renderer.setPixelRatio(mobile ? 1 : Math.min(window.devicePixelRatio, 2));
       refs.renderer.toneMapping = THREE.ACESFilmicToneMapping;
       refs.renderer.toneMappingExposure = 0.45; // Slightly dimmed from original 0.5 for readability
 
-      // Post-processing - original bloom with slight reduction
+      // Post-processing - reduced bloom on mobile
       refs.composer = new EffectComposer(refs.renderer);
       const renderPass = new RenderPass(refs.scene, refs.camera);
       refs.composer.addPass(renderPass);
 
       const bloomPass = new UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
-        0.7,  // Slightly reduced from 0.8
-        0.4,  // Same as original
-        0.85  // Same as original
+        mobile ? 0.4 : 0.7,  // Lower bloom on mobile
+        mobile ? 0.2 : 0.4,  // Lower radius on mobile
+        0.85
       );
       refs.composer.addPass(bloomPass);
 
@@ -121,9 +126,11 @@ export const Component = () => {
 
     const createStarField = () => {
       const { current: refs } = threeRefs;
-      const starCount = 5000;
+      const mobile = window.innerWidth <= 768;
+      const starCount = mobile ? 1500 : 5000; // Reduce stars on mobile
+      const layerCount = mobile ? 2 : 3; // Fewer layers on mobile
       
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < layerCount; i++) {
         const geometry = new THREE.BufferGeometry();
         const positions = new Float32Array(starCount * 3);
         const colors = new Float32Array(starCount * 3);
@@ -210,8 +217,10 @@ export const Component = () => {
 
     const createNebula = () => {
       const { current: refs } = threeRefs;
-      
-      const geometry = new THREE.PlaneGeometry(8000, 4000, 100, 100);
+      const mobile = window.innerWidth <= 768;
+      // Reduce geometry complexity on mobile
+      const segments = mobile ? 50 : 100;
+      const geometry = new THREE.PlaneGeometry(8000, 4000, segments, segments);
       const material = new THREE.ShaderMaterial({
         uniforms: {
           time: { value: 0 },
@@ -268,17 +277,21 @@ export const Component = () => {
 
     const createMountains = () => {
       const { current: refs } = threeRefs;
+      const mobile = window.innerWidth <= 768;
       
-      const layers = [
+      const allLayers = [
         { distance: -50, height: 60, color: 0x1a1a2e, opacity: 1 },
         { distance: -100, height: 80, color: 0x16213e, opacity: 0.8 },
         { distance: -150, height: 100, color: 0x0f3460, opacity: 0.6 },
         { distance: -200, height: 120, color: 0x0a4668, opacity: 0.4 }
       ];
+      
+      // Use fewer mountain layers on mobile
+      const layers = mobile ? allLayers.slice(0, 2) : allLayers;
 
       layers.forEach((layer, index) => {
         const points = [];
-        const segments = 50;
+        const segments = mobile ? 30 : 50; // Fewer segments on mobile
         
         for (let i = 0; i <= segments; i++) {
           const x = (i / segments - 0.5) * 1000;
@@ -311,8 +324,10 @@ export const Component = () => {
 
     const createAtmosphere = () => {
       const { current: refs } = threeRefs;
-      
-      const geometry = new THREE.SphereGeometry(600, 32, 32);
+      const mobile = window.innerWidth <= 768;
+      // Reduce sphere segments on mobile
+      const segments = mobile ? 16 : 32;
+      const geometry = new THREE.SphereGeometry(600, segments, segments);
       const material = new THREE.ShaderMaterial({
         uniforms: {
           time: { value: 0 }
@@ -572,11 +587,9 @@ export const Component = () => {
       refs.mountains.forEach((mountain, i) => {
         const speed = 1 + i * 0.9;
         const targetZ = mountain.userData.baseZ + scrollY * speed * 0.5;
-        refs.nebula.position.z = (targetZ + progress * speed * 0.01) - 100
         
         // Use the same smoothing approach
         mountain.userData.targetZ = targetZ;
-        const location = mountain.position.z
         if (progress > 0.7) {
           mountain.position.z = 600000;
         }
@@ -584,7 +597,12 @@ export const Component = () => {
           mountain.position.z = refs.locations[i]
         }
       });
-      refs.nebula.position.z = refs.mountains[3].position.z
+      
+      // Safely update nebula position based on last mountain or fallback
+      const lastMountain = refs.mountains[refs.mountains.length - 1];
+      if (lastMountain && refs.nebula) {
+        refs.nebula.position.z = lastMountain.position.z;
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -637,6 +655,12 @@ export const Component = () => {
             <p className="subtitle-line">The Coding Club of RIT</p>
             <p className="subtitle-line">Scroll to explore</p>
           </div>
+          <Link href="/register" className="hero-register-btn">
+            Register for wHACKiest
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </Link>
         </section>
         
         {/* Section 2: & Dept of CSE */}
