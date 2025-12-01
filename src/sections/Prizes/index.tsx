@@ -232,7 +232,12 @@ const SectionContainer = styled.section`
   padding-top: 0;
   
   ${mediaQueries.medium} {
-    min-height: 80vh;
+    min-height: 60vh;
+    height: auto;
+  }
+  
+  @media (max-width: 480px) {
+    min-height: 50vh;
   }
 `;
 

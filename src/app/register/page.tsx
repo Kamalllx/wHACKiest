@@ -864,7 +864,7 @@ export default function RegisterPage() {
 
 .teammates-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin-bottom: 40px;
   max-width: 100%;
@@ -872,19 +872,12 @@ export default function RegisterPage() {
   box-sizing: border-box;
 }
 
-@media (max-width: 1280px) {
+@media (min-width: 1440px) {
   .teammates-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
   }
 }
-
-
-        @media (max-width: 1024px) {
-          .teammates-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
 
         @media (max-width: 640px) {
           .teammates-grid {
@@ -898,12 +891,21 @@ export default function RegisterPage() {
         .form-section {
           position: relative;
           width: 100%;
-          padding: 28px;
+          padding: 20px;
           background: rgba(139, 35, 50, 0.02);
           border-radius: 18px;
           border: 1px solid rgba(139, 35, 50, 0.06);
           transition: all 0.3s ease;
+          box-sizing: border-box;
+          min-width: 0;
         }
+        
+        @media (min-width: 1440px) {
+          .form-section {
+            padding: 28px;
+          }
+        }
+        
         .form-section:not(:last-child)::after {
   content: "";
   position: absolute;
