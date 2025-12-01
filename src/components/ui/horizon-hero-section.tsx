@@ -642,20 +642,29 @@ export const Component = () => {
       </div>
 
       {/* Vertical Tracing Beam scroll indicator on the left */}
-      <TracingBeam className="fixed left-4 top-0 h-full z-50 hidden md:block">
+      <TracingBeam className="fixed left-4 top-0 h-full z-50 hidden md:block pointer-events-none">
         <div className="h-full" />
       </TracingBeam>
 
       {/* Additional sections for scrolling with varying heights */}
-      <div className="scroll-sections">
+      <div className="scroll-sections" style={{ position: 'relative', zIndex: 50 }}>
         {/* Section 1: CodeRIT */}
-        <section className="content-section" style={{ minHeight: '120vh' }}>
+        <section className="content-section" style={{ minHeight: '120vh', position: 'relative', zIndex: 50 }}>
           <h1 className="hero-title">CodeRIT</h1>
           <div className="hero-subtitle cosmos-subtitle">
             <p className="subtitle-line">The Coding Club of RIT</p>
             <p className="subtitle-line">Scroll to explore</p>
           </div>
-          <Link href="/register" className="hero-register-btn">
+          <Link 
+            href="/register" 
+            className="hero-register-btn"
+            style={{ 
+              position: 'relative', 
+              zIndex: 9999, 
+              pointerEvents: 'auto',
+              cursor: 'pointer'
+            }}
+          >
             Register for wHACKiest
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7" />
