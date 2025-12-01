@@ -3,8 +3,8 @@ import { SectionId } from "@/constants/section";
 
 export const NAVBAR_HEIGHT_PX = 80;
 
-export const WEBSITE2023URL = "https://2023.coderit.org";
-export const JOINURL = "https://coderit.org/join";
+export const WEBSITE2023URL = "https://coderit.netlify.app/";
+export const JOINURL = "https://coderit.netlify.app/";
 
 export interface NavBarProps {
   notMainPage?: boolean;

@@ -24,7 +24,7 @@ const uploadImage = async (issueTitle: string, image: File) => {
     {
       message: `[AUTOMATED] Upload image for issue "${issueTitle}"`,
       committer: {
-        name: "Hack the North Bot",
+        name: "wHACKiest",
         email: "coderit@msrit.edu",
       },
       content: (await toBase64(image)) || {},

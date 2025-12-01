@@ -34,14 +34,14 @@ export const getResultMessage = (signUpState: SignUpState): string => {
 
 // TODO: i don't know what type to put this as
 export const signupRequest = async (email: string) => {
-  const response = await fetch("https://api.hackthenorth.com/v3/graphql", {
+  const response = await fetch("https://api.whackiest.com/v3/graphql", {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      query: `mutation { addToMailingList(email: "${email}" event_slug: "hackthenorth2024") { email alreadySignup } }`,
+      query: `mutation { addToMailingList(email: "${email}" event_slug: "wHACKiest") { email alreadySignup } }`,
     }),
   });
 

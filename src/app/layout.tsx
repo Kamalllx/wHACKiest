@@ -3,13 +3,13 @@ import StyledComponentsRegistry from "@/lib/registry";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "wHACKiest | Organized by CodeRIT & Dept of CSE",
-  description: "Experience wHACKiest - the ultimate hackathon experience organized by CodeRIT and Dept of CSE. 36 hours of building, mentorship, and diverse resources to make your ideas come to life!",
+  title: "wHACKiest 2025 | Organized by CodeRIT & Dept of CSE",
+  description: "Experience wHACKiest 2025 - a two-phase hackathon with Ideathon (Dec 1-10) and 24-hour on-campus hackathon (Dec 12-13). ₹50,000 prize pool. Organized by CodeRIT and Department of Computer Science and Engineering, RIT Bengaluru.",
   openGraph: {
-    title: "wHACKiest",
-    description: "Experience wHACKiest - the ultimate hackathon experience organized by CodeRIT and Dept of CSE.",
-    url: "https://whackiest.coderit.org",
-    siteName: "wHACKiest",
+    title: "wHACKiest 2025",
+    description: "Two-phase hackathon with ₹50,000 prize pool. Ideathon (Dec 4-7) + 24-hour hackathon (Dec 12-13) at RIT Bengaluru.",
+    url: "https://coderit.netlify.app/",
+    siteName: "wHACKiest 2025",
     type: "website",
   },
   twitter: {
@@ -47,4 +47,3 @@ export default function RootLayout({
     </html>
   );
 }
-

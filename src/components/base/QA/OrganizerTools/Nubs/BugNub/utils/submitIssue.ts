@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { FormFields } from "../constants";
 
-const ENDPOINT = "https://staging-api.hackthenorth.com/v3/proxy";
+const ENDPOINT = "needs_change";
 const BASE_REPO_ENDPOINT = "https://api.github.com/repos/hackathon";
 
 const SUCCESS_CODE = 201;
@@ -16,7 +16,7 @@ export interface SubmitIssueParams
 
 /**
  * Submits an issue to hackathon/<repoName> in GitHub
- * @param params.repoName the name of the Github repository to submit the issue to (ex. team.hackthenorth.com, my.hackthenorth.com)
+ * @param params.repoName the name of the Github repository to submit the issue to
  * @param params.title the title of the issue
  * @param params.description a summary of the issue
  * @param params.reporter whoever reported the issue

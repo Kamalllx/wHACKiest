@@ -5,4 +5,4 @@ const Example = () => {
   return <Lottie animationData={groovyWalkAnimation} />;
 };
 
-export default Example;
+export default Example; 

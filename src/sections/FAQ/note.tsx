@@ -75,7 +75,7 @@ const Note: React.FC = () => {
   Whether you're here to build something impactful, learn a new technology,
   or collaborate with amazing people, we’re here to support you with
   resources, mentors, and a vibrant community. <br />
-  There are no limits — just bring your creativity, curiosity, and energy.
+  There are no limits ,just bring your creativity, curiosity, and energy.
   We can’t wait to see what you create! <br /><br />
   ~ Team  CodeRIT💙
 </NoteText>
