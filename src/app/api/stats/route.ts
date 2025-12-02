@@ -20,33 +20,58 @@ export async function GET() {
 
     // Calculate total participants by aggregating member counts
     const participantsAggregation = await collection.aggregate([
-      {
-        $project: {
-          memberCount: {
-            $add: [
-              // Team lead always counts as 1
-              1,
-              // Teammate 2 always counts as 1 (required)
-              1,
-              // Teammate 3 counts if name exists
-              { $cond: [{ $and: [{ $ne: ["$teammate3Name", ""] }, { $ne: ["$teammate3Name", null] }] }, 1, 0] },
-              // Teammate 4 counts if name exists
-              { $cond: [{ $and: [{ $ne: ["$teammate4Name", ""] }, { $ne: ["$teammate4Name", null] }] }, 1, 0] }
-            ]
-          }
-        }
-      },
-      {
-        $group: {
-          _id: null,
-          totalParticipants: { $sum: "$memberCount" }
+    {
+      $project: {
+        memberCount: {
+          $add: [
+            2, // teamLead and teammate2 are always present
+            { $cond: [{ $ifNull: ["$teammate3.name", false] }, 1, 0] },
+            { $cond: [{ $ifNull: ["$teammate4.name", false] }, 1, 0] }
+          ]
         }
       }
-    ]).toArray();
+    },
+    {
+      $group: {
+        _id: null,
+        totalParticipants: { $sum: "$memberCount" }
+      }
+    }
+  ]).toArray();
 
-    const totalParticipants = participantsAggregation.length > 0 
-      ? participantsAggregation[0].totalParticipants 
-      : 0;
+  const countByYear = await collection.aggregate([
+    {
+      $project: {
+        members: [
+          "$teamLead.usn",
+          "$teammate2.usn",
+          "$teammate3.usn",
+          "$teammate4.usn"
+        ]
+      }
+    },
+    { $unwind: "$members" }, // explode into separate docs
+    {
+      $match: {
+        members: { $ne: null }
+      }
+    },
+    {
+      $project: {
+        year: { $substr: ["$members", 3, 2] } // extract "23", "24", "25"
+      }
+    },
+    {
+      $group: {
+        _id: "$year",
+        count: { $sum: 1 }
+      }
+    }
+  ]).toArray();
+
+
+  const totalParticipants = participantsAggregation?.[0]?.totalParticipants ?? 0;
+
 
     // Get all team names
     const teamsData = await collection.find({}, { 
@@ -66,7 +91,11 @@ export async function GET() {
       success: true,
       summary: {
         totalRegistrations: totalTeams,
-        totalParticipants: totalParticipants
+        totalParticipants: totalParticipants,
+        noOfParticipantsByYear: countByYear.reduce((acc, curr) => {
+          acc[curr._id] = curr.count;
+          return acc;
+        }, {} as Record<string, number>)
       },
       database: {
         cluster: "Cluster0",
