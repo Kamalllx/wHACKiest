@@ -458,7 +458,10 @@ export default function RegisterPage() {
             <span className="title-main">wHACKiest</span>
             <span className="title-year">&lt;/2025&gt;</span>
           </h1>
+          
           <h2 className="register-subtitle highlight-animate text-10xl font-extrabold">REGISTER YOUR TEAM</h2>
+          <br />
+          <p className="register-exclusive-text highlight-animate text-10xl font-extrabold">Exclusive for RIT Students only</p>
         </div>
 
         {serverError && (
@@ -807,6 +810,23 @@ export default function RegisterPage() {
 
 .register-subtitle.highlight-animate::before {
   background: linear-gradient(90deg, #ffe27a, #ffcf33, #ffb800);
+}
+
+/* Exclusive text */
+.register-exclusive-text {
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .register-exclusive-text {
+    font-size: 0.85rem;
+    margin-top: 10px;
+  }
 }
 
         .register-description {

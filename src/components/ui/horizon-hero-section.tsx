@@ -670,6 +670,7 @@ export const Component = () => {
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </Link>
+          <p className="hero-exclusive-text">Exclusive for RIT Students only</p>
         </section>
         
         {/* Section 2: & Dept of CSE */}
