@@ -56,80 +56,150 @@ const ArrowIcon = () => (
 
 import { SectionId } from "@/constants"
 
+// Icon components for each track
+const PlaneIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+  </svg>
+)
+
+const ShopIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+    <polyline points="9 22 9 12 15 12 15 22"/>
+  </svg>
+)
+
+const MediaIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+    <line x1="7" y1="2" x2="7" y2="22"/>
+    <line x1="17" y1="2" x2="17" y2="22"/>
+    <line x1="2" y1="12" x2="22" y2="12"/>
+    <line x1="2" y1="7" x2="7" y2="7"/>
+    <line x1="2" y1="17" x2="7" y2="17"/>
+    <line x1="17" y1="17" x2="22" y2="17"/>
+    <line x1="17" y1="7" x2="22" y2="7"/>
+  </svg>
+)
+
+const SpaceIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+    <path d="M2 12h20"/>
+  </svg>
+)
+
 const ProblemStatements: React.FC = () => {
   const [activeTab, setActiveTab] = useState("track1")
 
   const tabs = [
     {
-      title: "Track 1",
+      title: "PS 1",
       value: "track1",
+      icon: <PlaneIcon />,
+      color: "#10b981",
       content: (
-        <TabContent>
-          <TrackTitle>To Be Announced</TrackTitle>
+        <TabContent data-color="#10b981">
+          <TrackIcon style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#10b981' }}><PlaneIcon /></TrackIcon>
+          <TrackTitle>Endless Trail</TrackTitle>
+          <TrackDomain style={{ color: '#10b981' }}>Domain: Tourism & Hospitality</TrackDomain>
+          <TrackPartner>Partner: Hampi Labs</TrackPartner>
           <TrackDescription>
-            Problem statements will be revealed on December 4th, 2025 at 2:00 PM during the Grand Inauguration at ESB
-            Seminar Hall 1.
+            Propose any innovative idea that reimagines the future of travel, hospitality or exploration.
           </TrackDescription>
-          <CountdownBadge>Coming Soon</CountdownBadge>
+          <TrackDetails>
+            Build for trip planning, accessibility, safety, sustainability, cultural discovery, local business engagement, hospitality experiences, or any aspect of travel that can be improved with technology.
+          </TrackDetails>
+          <TrackFormats>
+            <FormatTag>Apps</FormatTag>
+            <FormatTag>Maps</FormatTag>
+            <FormatTag>Assistants</FormatTag>
+            <FormatTag>Web Tools</FormatTag>
+            <FormatTag>AR Experiences</FormatTag>
+          </TrackFormats>
         </TabContent>
       ),
     },
     {
-      title: "Track 2",
+      title: "PS 2",
       value: "track2",
+      icon: <ShopIcon />,
+      color: "#f59e0b",
       content: (
-        <TabContent>
-          <TrackTitle>To Be Announced</TrackTitle>
+        <TabContent data-color="#f59e0b">
+          <TrackIcon style={{ background: 'rgba(245, 158, 11, 0.15)', color: '#f59e0b' }}><ShopIcon /></TrackIcon>
+          <TrackTitle>Build for Bharat</TrackTitle>
+          <TrackDomain style={{ color: '#f59e0b' }}>Domain: FinTech for Small Businesses</TrackDomain>
+          <TrackPartner>Partner: Aspire Finance</TrackPartner>
           <TrackDescription>
-            Problem statements will be revealed on December 4th, 2025 at 2:00 PM during the Grand Inauguration at ESB
-            Seminar Hall 1.
+            Build solutions that help India's shopkeepers operate smoother, sell smarter, or grow faster.
           </TrackDescription>
-          <CountdownBadge>Coming Soon</CountdownBadge>
+          <TrackDetails>
+            Address challenges faced by small retailers or sole proprietors—managing daily operations, accessing credit, handling finances, communicating with customers, or improving digital presence.
+          </TrackDetails>
+          <TrackFormats>
+            <FormatTag>Mobile App</FormatTag>
+            <FormatTag>WhatsApp Tool</FormatTag>
+            <FormatTag>Webapp</FormatTag>
+            <FormatTag>Workflow Automation</FormatTag>
+            <FormatTag>AI Tools</FormatTag>
+          </TrackFormats>
         </TabContent>
       ),
     },
     {
-      title: "Track 3",
+      title: "PS 3",
       value: "track3",
+      icon: <MediaIcon />,
+      color: "#8b5cf6",
       content: (
-        <TabContent>
-          <TrackTitle>To Be Announced</TrackTitle>
+        <TabContent data-color="#8b5cf6">
+          <TrackIcon style={{ background: 'rgba(139, 92, 246, 0.15)', color: '#8b5cf6' }}><MediaIcon /></TrackIcon>
+          <TrackTitle>Beyond the Frame</TrackTitle>
+          <TrackDomain style={{ color: '#8b5cf6' }}>Domain: Media & Content Tech</TrackDomain>
           <TrackDescription>
-            Problem statements will be revealed on December 4th, 2025 at 2:00 PM during the Grand Inauguration at ESB
-            Seminar Hall 1.
+            Propose any technology-driven innovation that reimagines the future of media and content.
           </TrackDescription>
-          <CountdownBadge>Coming Soon</CountdownBadge>
+          <TrackDetails>
+            Work on content workflows, creator tools, recommendation systems, immersive media, digital integrity, analytics, collaboration tools, or anything that reimagines media for modern audiences.
+          </TrackDetails>
+          <TrackFormats>
+            <FormatTag>Mobile Apps</FormatTag>
+            <FormatTag>Web Apps</FormatTag>
+            <FormatTag>AI Tools</FormatTag>
+            <FormatTag>Creative Platforms</FormatTag>
+          </TrackFormats>
         </TabContent>
       ),
     },
     {
-      title: "Track 4",
+      title: "PS 4",
       value: "track4",
+      icon: <SpaceIcon />,
+      color: "#06b6d4",
       content: (
-        <TabContent>
-          <TrackTitle>To Be Announced</TrackTitle>
+        <TabContent data-color="#06b6d4">
+          <TrackIcon style={{ background: 'rgba(6, 182, 212, 0.15)', color: '#06b6d4' }}><SpaceIcon /></TrackIcon>
+          <TrackTitle>Infinite Horizons</TrackTitle>
+          <TrackDomain style={{ color: '#06b6d4' }}>Domain: Space Tech</TrackDomain>
           <TrackDescription>
-            Problem statements will be revealed on December 4th, 2025 at 2:00 PM during the Grand Inauguration at ESB
-            Seminar Hall 1.
+            Propose innovations inspired by space technology, exploration, or space science.
           </TrackDescription>
-          <CountdownBadge>Coming Soon</CountdownBadge>
+          <TrackDetails>
+            Work with space data, observation tools, education, visualizations, simulations, communication systems, or any concept that connects Earth and beyond.
+          </TrackDetails>
+          <TrackFormats>
+            <FormatTag>Apps</FormatTag>
+            <FormatTag>Dashboards</FormatTag>
+            <FormatTag>AR/VR</FormatTag>
+            <FormatTag>Web Tools</FormatTag>
+            <FormatTag>Creative Interfaces</FormatTag>
+          </TrackFormats>
         </TabContent>
       ),
     },
-    // {
-    //   title: "Open Innovation",
-    //   value: "open",
-    //   content: (
-    //     <TabContent>
-    //       <TrackTitle>To Be Announced</TrackTitle>
-    //       <TrackDescription>
-    //         Problem statements will be revealed on December 4th, 2025 at 2:00 PM during the Grand Inauguration at ESB
-    //         Seminar Hall 1.
-    //       </TrackDescription>
-    //       <CountdownBadge>Coming Soon</CountdownBadge>
-    //     </TabContent>
-    //   ),
-    // },
   ]
 
   return (
@@ -137,7 +207,7 @@ const ProblemStatements: React.FC = () => {
       <ContentContainer>
         <HeadingContainer>
           <MainHeading>Problem Statements</MainHeading>
-          <Subheading>Choose your track and innovate</Subheading>
+          <Subheading>Choose any ONE domain and build your idea around the theme</Subheading>
         </HeadingContainer>
 
         <AnnouncementBanner>
@@ -146,14 +216,14 @@ const ProblemStatements: React.FC = () => {
           </BannerIcon>
           <BannerActionWrapper>
             <BannerTextWrapper>
-              <BannerTitle>Mark Your Calendar</BannerTitle>
+              <BannerTitle>Your Innovation Journey Begins Now!</BannerTitle>
               <BannerDescription>
-                Problem statements will be released on <strong>December 4th, 2025 at 2:00 PM</strong>
+                <strong>wHACKiest 2025</strong> – Official Problem Statements Released
               </BannerDescription>
-              <BannerVenue>Join us at ESB Seminar Hall 1 at 2:30 PM for the Grand Inauguration</BannerVenue>
+              <BannerVenue>Pick your track and start building your solution</BannerVenue>
             </BannerTextWrapper>
-            <RegisterButtonInBanner href="/register">
-              Register Now
+            <RegisterButtonInBanner href="https://forms.gle/DMGyjfBrdneJcXXN9" target="_blank" rel="noopener noreferrer">
+              Submit Ideathon Ideas
               <ArrowIcon />
             </RegisterButtonInBanner>
           </BannerActionWrapper>
@@ -162,7 +232,8 @@ const ProblemStatements: React.FC = () => {
         <TabsSection>
           <TabNavigation>
             {tabs.map((tab) => (
-              <TabButton key={tab.value} data-active={activeTab === tab.value} onClick={() => setActiveTab(tab.value)}>
+              <TabButton key={tab.value} data-active={activeTab === tab.value} onClick={() => setActiveTab(tab.value)} style={{ '--tab-color': tab.color } as React.CSSProperties}>
+                <span className="tab-icon">{tab.icon}</span>
                 {tab.title}
               </TabButton>
             ))}
@@ -331,16 +402,16 @@ const BannerVenue = styled.p`
   margin: 0;
 `
 
-  const RegisterButtonInBanner = styled(NextLink)`
+  const RegisterButtonInBanner = styled.a`
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    padding: 16px 32px;
-    font-size: 1rem;
+    padding: 16px 28px;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #0a0e27;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
-    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border: none;
     border-radius: 12px;
     cursor: pointer;
     text-decoration: none;
@@ -349,6 +420,8 @@ const BannerVenue = styled.p`
     overflow: hidden;
     white-space: nowrap;
     flex-shrink: 0;
+    color: white;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
     
     &::before {
       content: '';
@@ -357,7 +430,7 @@ const BannerVenue = styled.p`
       left: -100%;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.15);
       transition: left 0.4s ease;
     }
 
@@ -367,13 +440,13 @@ const BannerVenue = styled.p`
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 32px rgba(255, 255, 255, 0.25);
-    background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.95) 100%);
+    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
   }
 
   @media (max-width: 768px) {
-    padding: 14px 28px;
-    font-size: 0.95rem;
+    padding: 14px 24px;
+    font-size: 0.9rem;
     width: 100%;
     justify-content: center;
   }
@@ -414,21 +487,37 @@ interface TabButtonProps {
 const TabButton = styled.button<TabButtonProps>`
   padding: 12px 24px;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   color: ${(props) => (props["data-active"] ? "#ffffff" : "rgba(255, 255, 255, 0.6)")};
   background: ${(props) => (props["data-active"] ? "rgba(255, 255, 255, 0.15)" : "transparent")};
   border: ${(props) => (props["data-active"] ? "1px solid rgba(255, 255, 255, 0.25)" : "1px solid transparent")};
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .tab-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: ${(props) => (props["data-active"] ? 1 : 0.5)};
+    transition: opacity 0.3s ease;
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: 10px;
+    border-radius: 12px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
     opacity: ${(props) => (props["data-active"] ? 1 : 0)};
     transition: opacity 0.3s ease;
@@ -439,20 +528,29 @@ const TabButton = styled.button<TabButtonProps>`
     color: #ffffff;
     background: ${(props) => (props["data-active"] ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0.08)")};
     border-color: rgba(255, 255, 255, 0.15);
+    
+    .tab-icon {
+      opacity: 1;
+    }
   }
 
   @media (max-width: 768px) {
-    padding: 10px 20px;
+    padding: 10px 16px;
     font-size: 0.85rem;
+    
+    .tab-icon svg {
+      width: 16px;
+      height: 16px;
+    }
   }
 `
 
 const TabContentContainer = styled.div`
   position: relative;
-  min-height: 350px;
+  min-height: 480px;
 
   @media (max-width: 768px) {
-    min-height: 320px;
+    min-height: 550px;
   }
 `
 
@@ -472,44 +570,137 @@ const TabContentWrapper = styled.div<TabContentWrapperProps>`
 const TabContent = styled.div`
   width: 100%;
   height: 100%;
-  border-radius: 16px;
-  padding: 48px 40px;
+  border-radius: 20px;
+  padding: 40px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 24px;
-  background: rgba(255, 255, 255, 0.05);
+  justify-content: flex-start;
+  gap: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.4s ease;
 
   @media (max-width: 768px) {
-    padding: 32px 24px;
-    min-height: 300px;
+    padding: 28px 20px;
+    gap: 12px;
+  }
+`
+
+const TrackIcon = styled.div`
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  @media (max-width: 768px) {
+    width: 52px;
+    height: 52px;
+    
+    svg {
+      width: 26px;
+      height: 26px;
+    }
   }
 `
 
 const TrackTitle = styled.h3`
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 2.2rem;
+  font-weight: 700;
   color: #ffffff;
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+  }
+`
+
+const TrackDomain = styled.p`
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.02em;
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+`
+
+const TrackPartner = styled.p`
+  font-size: 0.9rem;
+  color: rgba(255, 215, 0, 0.95);
+  font-weight: 600;
+  margin: 0;
+  padding: 8px 20px;
+  background: rgba(255, 215, 0, 0.12);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 6px 14px;
   }
 `
 
 const TrackDescription = styled.p`
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 500px;
-  margin: 0;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 8px 0 0;
   line-height: 1.6;
+  font-weight: 500;
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+`
+
+const TrackDetails = styled.p`
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 650px;
+  margin: 0;
+  line-height: 1.7;
+  
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
+`
+
+const TrackFormats = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8px;
+`
+
+const FormatTag = styled.span`
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 500;
+  
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+  }
 `
 
 const CountdownBadge = styled.div`
